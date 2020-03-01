@@ -10,9 +10,6 @@ button {
   cursor: pointer;
 }
 
-.MuiAppBar-colorPrimary {
-  background-color: #f37931;
-}
 
 .category_content {
   border: 1px solid black;
