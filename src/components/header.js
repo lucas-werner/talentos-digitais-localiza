@@ -66,6 +66,7 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
+        <img src="./imgs/gray_star.png" alt="werner" />
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -76,9 +77,10 @@ export default function SearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
+          
+            <img src="./imgs/gray_star.png" alt="werner" />
+            
+         
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -92,7 +94,9 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+          <img src="./imgs/gray_star.png" alt="werner" />
         </Toolbar>
+        <img src="./imgs/gray_star.png" alt="werner" />
       </AppBar>
     </div>
   );
