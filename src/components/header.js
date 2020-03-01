@@ -7,6 +7,7 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import Logo from "../imgs/werner.png";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -65,9 +66,8 @@ export default function SearchAppBar() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-        <img src="./imgs/gray_star.png" alt="werner" />
-      <AppBar position="static">
+    <div >
+      <AppBar position="static" className="cor">
         <Toolbar>
           <IconButton
             edge="start"
@@ -77,10 +77,9 @@ export default function SearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          
-            <img src="./imgs/gray_star.png" alt="werner" />
-            
-         
+          <Typography className={classes.title} variant="h6" noWrap>         
+            <img src={Logo} alt="werner" />
+          </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -94,9 +93,7 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          <img src="./imgs/gray_star.png" alt="werner" />
         </Toolbar>
-        <img src="./imgs/gray_star.png" alt="werner" />
       </AppBar>
     </div>
   );
