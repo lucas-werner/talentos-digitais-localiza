@@ -1,25 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import MovieList from './pages/MovieList';
-import MovieDetails from './pages/MovieDetails';
-import NewMovie from './pages/NewMovie';
-import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
+import ProductDetails from './pages/ProductDetails';
+import SearchBar from './pages/SearchBar';
 import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <main>
+    <main>
+      <BrowserRouter>
         <Switch>
-          <Route exact path="/projeto-localiza" component={MovieList} />
-          <Route path="/movies/new" component={NewMovie} />
-          <Route path="/movies/:id/edit" component={EditMovie} />
-          <Route path="/movies/:id" component={MovieDetails} />
-          <Route component={NotFound} />
+          <Route exact path="/" component={SearchBar} />
+          <Route path="/products/:id" component={ProductDetails} />         
+          <Route path="*" component={NotFound} />
         </Switch>
-      </main>
-    </BrowserRouter>
+      </BrowserRouter>
+    </main>
   );
 }
 

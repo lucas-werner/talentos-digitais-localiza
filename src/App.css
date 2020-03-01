@@ -1,3 +1,26 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
 body {
   background-color: whitesmoke;
   box-sizing: border-box;
@@ -10,7 +33,7 @@ body {
 }
 
 .movie-card {
-  width: 500px;
+  width: 300px;
 }
 
 .movie-form {

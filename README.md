@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto de Movie Cards CRUD!
+# Boas vindas ao repositório do projeto de Front-End Online Store!
 
 Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
 
@@ -6,115 +6,373 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 ## O que deverá ser desenvolvido
 
-Dando continuidade aos últimos projetos, você criará um [_CRUD_](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) de cartões de filmes em React. Como todo _CRUD_, em seu app deverá ser possível:
+Neste projeto você criará uma versão simplificada, sem persistência no banco de dados, de uma loja online, desenvolvendo em grupo suas funcionalidades de acordo com demandas definidas em um quadro _Kanban_, em um cenário mais próximo ao do mercado de trabalho. A partir dessas demandas, teremos uma aplicação onde os usuários poderão:
+  - Buscar produtos por termos e categorias a partir da _API do Mercado Livre_;
+  - Interagir com os produtos buscados de modo a adicioná-los e removê-los de um carrinho de compras em diferentes quantidades;
+  - Visualizar detalhes e avaliações prévias de um produto, bem como criar novas avaliações;
+  - E por fim, finalizar a compra dos itens selecionados.
 
-  - Listar todos os filmes cadastrados, com informações resumidas sobre cada filme;
-  - Exibir informações detalhadas de um filme selecionado;
-  - Adicionar um novo filme à lista;
-  - Editar um filme da lista;
-  - E apagar um filme da lista.
+## Documentação da API do Mercado Livre
 
-Nos últimos projetos, por mais que o app tenha sido desenvolvido utilizando múltiplos componentes, o que é uma boa prática, todas as funcionalidades eram acessadas ao mesmo tempo, no mesmo lugar, utilizando apenas uma URL (`localhost:3000`, normalmente). Na mesma página onde havia a listagem de filmes, havia um formulário pra criar um novo filme, por exemplo. À medida que seus apps se tornarem maiores e mais complexos, isso se tornará inviável. Desta vez, as funcionalidades do app serão agrupadas e organizadas em rotas.
+Sua página _web_ irá consumir os dados da API do _Mercado Livre_ para realizar a busca de itens da sua loja online. Para realizar essas buscas, vocês precisarão consultar os seguintes _endpoints_:
 
-Uma rota define o que deve ser renderizado na página ao abri-la. Cada rota está associada a um caminho. O caminho é a parte da URL após o domínio (nome do site, de forma simplificada). Por exemplo, em `www.example.com/foo/bar`, o caminho é `/foo/bar`. Até agora, todos os apps React que você desenvolveu possuiam somente uma rota, a raiz (`/`).
+- Para listar as categorias disponíveis:
+  - Tipo da requisição: `GET`
+  - Endpoint: https://api.mercadolibre.com/sites/MLB/categories
+- Para buscar por itens por termo:
+  - Tipo da requisição: `GET`
+  - Parâmetro de busca $QUERY (este parâmetro deve ser substituído pelo valor do campo de busca)
+  - Endpoint: https://api.mercadolibre.com/sites/MLB/search?q=$QUERY
+- Para buscar itens por categoria:
+  - Tipo da requisição: `GET`
+  - Parâmetro de busca $CATEGORY_ID (este parâmetro deve ser substituído pelo ID da categoria selecionada)
+  - Endpoint: https://api.mercadolibre.com/sites/MLB/search?category=$CATEGORY_ID
+- Para buscar itens de uma categoria por termo:
+  - Tipo da requisição: `GET`
+  - Parâmetro de busca $QUERY (este parâmetro deve ser substituído pelo valor do campo de busca)
+  - Parâmetro de busca $CATEGORY_ID (este parâmetro deve ser substituído pelo ID da categoria selecionada)
+  - Endpoint: https://api.mercadolibre.com/sites/MLB/search?category=$CATEGORY_ID&q=$QUERY
 
-Este app terá 4 rotas:
+Exemplo de requisição para listar categorias:
+```
+"https://api.mercadolibre.com/sites/MLB/categories"
+```
 
-1. A rota raiz (index), no caminho `/`. Esta rota exibirá uma lista com todos os filmes cadastrados. Essa lista contém informações resumidas sobre cada filme.
+O retorno desse endpoint será algo no formato:
+```json
+[
+    {
+        "id": "MLB5672",
+        "name": "Acessórios para Veículos"
+    },
+    ...
+]
+```
 
-2. Uma rota para mostrar informações detalhadas de um filme, no caminho `/movies/:id`. Onde o `:id` é o parâmetro da URL que representa id do filme exibido. Por exemplo, ao entrar no caminho `/movies/5`, serão exibidas informações sobre o filme com id 5.
+Exemplo de requisição de busca:
+```
+"https://api.mercadolibre.com/sites/MLB/search?category=MLB1055&q=Motorola"
+```
 
-3. Uma rota para criar novos filmes, no caminho `/movies/new`. Essa rota renderizará um formulário para adicionar um novo filme.
+O retorno desse endpoint será algo no formato:
+```json
+{
+    "site_id": "MLB",
+    "query": "Moto G",
+    "paging": {
+        "total": 14487,
+        "offset": 0,
+        "limit": 50,
+        "primary_results": 1037
+    },
+    "results": [
+        {
+            "id": "MLB1370656442",
+            "site_id": "MLB",
+            "title": "Motorola G7 Play 32 Gb Dourado 2 Gb Ram",
+            "seller": {
+                "id": 29211,
+                "permalink": null,
+                "power_seller_status": "gold",
+                "car_dealer": false,
+                "real_estate_agency": false,
+                "tags": []
+            },
+            "price": 849,
+            "currency_id": "BRL",
+            "available_quantity": 1,
+            "sold_quantity": 0,
+            "buying_mode": "buy_it_now",
+            "listing_type_id": "gold_pro",
+            "stop_time": "2039-11-22T03:49:51.000Z",
+            "condition": "new",
+            "permalink": "https://www.mercadolivre.com.br/p/MLB13996822",
+            "thumbnail": "http://mlb-s1-p.mlstatic.com/964021-MLA31350197875_072019-I.jpg",
+            "accepts_mercadopago": true,
+            "installments": {
+                "quantity": 12,
+                "amount": 70.75,
+                "rate": 0,
+                "currency_id": "BRL"
+            },
+            "address": {
+                "state_id": "BR-RJ",
+                "state_name": "Rio de Janeiro",
+                "city_id": "BR-RJ-01",
+                "city_name": "Rio de Janeiro"
+            },
+            "shipping": {
+                "free_shipping": true,
+                "mode": "me2",
+                "tags": [
+                    "mandatory_free_shipping"
+                ],
+                "logistic_type": "drop_off",
+                "store_pick_up": false
+            },
+            "seller_address": {
+                "id": "",
+                "comment": "",
+                "address_line": "",
+                "zip_code": "",
+                "country": {
+                    "id": "BR",
+                    "name": "Brasil"
+                },
+                "state": {
+                    "id": "BR-RJ",
+                    "name": "Rio de Janeiro"
+                },
+                "city": {
+                    "id": "BR-RJ-01",
+                    "name": "Rio de Janeiro"
+                },
+                "latitude": "",
+                "longitude": ""
+            },
+            "attributes": [
+                {
+                    "id": "BRAND",
+                    "value_id": "2503",
+                    "attribute_group_id": "OTHERS",
+                    "attribute_group_name": "Outros",
+                    "name": "Marca",
+                    "value_name": "Motorola",
+                    "value_struct": null,
+                    "values": [
+                        {
+                            "id": "2503",
+                            "name": "Motorola",
+                            "struct": null,
+                            "source": 1
+                        }
+                    ],
+                    "source": 1
+                },
+                {
+                    "source": 1,
+                    "name": "Modelo de CPU",
+                    "value_name": "4x1.8 GHz Kryo 250 Gold/4x1.8 GHz Kryo 250 Silver",
+                    "value_struct": null,
+                    "attribute_group_id": "OTHERS",
+                    "id": "CPU_MODEL",
+                    "value_id": "6954315",
+                    "values": [
+                        {
+                            "id": "6954315",
+                            "name": "4x1.8 GHz Kryo 250 Gold/4x1.8 GHz Kryo 250 Silver",
+                            "struct": null,
+                            "source": 1
+                        }
+                    ],
+                    "attribute_group_name": "Outros"
+                },
+                {
+                    "value_name": "Adreno 506",
+                    "attribute_group_id": "OTHERS",
+                    "attribute_group_name": "Outros",
+                    "source": 1,
+                    "name": "Modelo de GPU",
+                    "value_id": "7524181",
+                    "value_struct": null,
+                    "values": [
+                        {
+                            "id": "7524181",
+                            "name": "Adreno 506",
+                            "struct": null,
+                            "source": 1
+                        }
+                    ],
+                    "id": "GPU_MODEL"
+                },
+                {
+                    "id": "ITEM_CONDITION",
+                    "value_struct": null,
+                    "values": [
+                        {
+                            "struct": null,
+                            "source": 1572,
+                            "id": "2230284",
+                            "name": "Novo"
+                        }
+                    ],
+                    "attribute_group_id": "OTHERS",
+                    "attribute_group_name": "Outros",
+                    "name": "Condição do item",
+                    "value_id": "2230284",
+                    "value_name": "Novo",
+                    "source": 1572
+                },
+                {
+                    "name": "Linha",
+                    "value_id": "59187",
+                    "value_struct": null,
+                    "attribute_group_id": "OTHERS",
+                    "attribute_group_name": "Outros",
+                    "id": "LINE",
+                    "value_name": "Moto",
+                    "values": [
+                        {
+                            "name": "Moto",
+                            "struct": null,
+                            "source": 1,
+                            "id": "59187"
+                        }
+                    ],
+                    "source": 1
+                },
+                {
+                    "id": "MODEL",
+                    "name": "Modelo",
+                    "value_id": "6444567",
+                    "value_name": "G7 Play",
+                    "value_struct": null,
+                    "values": [
+                        {
+                            "struct": null,
+                            "source": 1,
+                            "id": "6444567",
+                            "name": "G7 Play"
+                        }
+                    ],
+                    "attribute_group_id": "OTHERS",
+                    "attribute_group_name": "Outros",
+                    "source": 1
+                },
+                {
+                    "value_id": "6954318",
+                    "attribute_group_name": "Outros",
+                    "attribute_group_id": "OTHERS",
+                    "source": 1,
+                    "id": "PROCESSOR_MODEL",
+                    "name": "Modelo do processador",
+                    "value_name": "Snapdragon 632",
+                    "value_struct": null,
+                    "values": [
+                        {
+                            "source": 1,
+                            "id": "6954318",
+                            "name": "Snapdragon 632",
+                            "struct": null
+                        }
+                    ]
+                }
+            ],
+            "differential_pricing": {
+                "id": 33580182
+            },
+            "original_price": null,
+            "category_id": "MLB1055",
+            "official_store_id": null,
+            "catalog_product_id": "MLB13996822",
+            "tags": [
+                "good_quality_thumbnail",
+                "brand_verified",
+                "extended_warranty_eligible",
+                "good_quality_picture",
+                "immediate_payment",
+                "cart_eligible"
+            ],
+            "catalog_listing": true
+        },
+        ...
+    ]
+}
+```
 
-4. Uma rota para editar um filme, no caminho `/movies/:id/edit`. Analogamente à rota 2, `:id` é o id do filme a ser editado. Essa rota renderizará um formulário idêntico ao da rota 3. Nesse caso, porém, o formulário virá preenchido com as informações do filme a ser editado. Ao submeter o formulário, ao invés de criar um novo filme, o filme em questão terá seus dados atualizados.
-
-Relacionado a cada rota haverá um componente React responsável por renderizar seu conteúdo. Esse mapeamento entre o caminho da URL, rota e componente será feito pelo `React Router`, a principal biblioteca de roteamento em `React`.
-
-Naturalmente, haverá links de navegação e redirecionamento entre as diferentes rotas. Por exemplo, na rota 1, haverá, para cada filme, um link para a rota 2, onde se poderá ver informações detalhadas sobre o filme escolhido. Na rota 2, haverá um link para a rota 4, a fim de se editar informações do filme. Ao submeter o formulário, o app automaticamente será levado de volta à rota 2, mostrando as informações atualizadas do filme. Tudo isso será feito utilizando os componentes da biblioteca `React Router`.
-
-Outra diferença importante neste projeto em relação aos anteriores é que os dados virão de uma API (simulada) e não mais de um arquivo estático. Você utilizará essa API para ler, criar, atualizar e apagar filmes. Logo, você terá que lidar com requisições assíncronas e _promises_. Também deverá fazer uso de _lifecycle methods_ e de estados para controlar o que é renderizado por seus componentes a depender de em que momento as requisições se encontram.
-
-## Desenvolvimento
-
-Este repositório já contém um _template_ com um App React criado e configurado. Após clonar o projeto e instalar as dependências (mais sobre isso abaixo), você não precisará realizar nenhuma configuração adicional. Todos os componentes estritamente necessários para finalizar o projeto já estão criados, mas você pode adicionar outros se julgar necessário. Você deverá complementar estes componentes de forma a satisfazer os requisitos listados na próxima seção.
+Se você quiser aprender mais sobre a API do _Mercado Livre_, veja a [documentação](https://developers.mercadolivre.com.br/pt_br/itens-e-buscas).
 
 ## Requisitos do projeto
 
-### 1 - O componente `App` deve renderizar `BrowserRouter`
+Aqui encontram-se os requisitos do projeto. Para acessar a descrição completa das demandas, veja o quadro _Kanban_ disponibilizado para o seu grupo na [aba Projects](https://github.com/tryber/sd-02-week14-project-frontend-online-store-3/projects) do repositório.
 
-O componente `App`, que representa toda a aplicação, deve importar e renderizar `BrowserRouter`.
+⚠️ Lembre-se que o seu projeto só será avaliado se estiver passando pelos _checks_ do **CodeClimate**.
 
-### 2 - O componente `BrowserRouter` deve renderizar `Switch`
+### 1. Criar página de listagem de produtos vazia
 
-O componente `Switch` deve ser o único filho direto de `BrowserRouter`. Dentro de `Switch` ficarão as rotas relacionadas às diferentes páginas da aplicação.
+  A tela básica da plataforma é a tela de **listagem de produtos**, onde quem usa buscará o que quer para adicionar ao carrinho e filtrará suas buscas.
 
-### 3 - O componente `Switch` deve renderizar as 4 rotas do app
+### 2. Criar página do carrinho de compras
 
-O app possui ao todo 4 rotas, como descrito na seção [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido). Cada rota é associada a um caminho de URL e a um componente. Este componente renderizará um conteúdo específico para aquela rota. O mapeamento entre rotas, caminhos de URL e componentes estão listados abaixo.
+  Quem usa o site irá adicionar produtos em seu carrinho de compras e finalizar a compra. A listagem de produtos deve ter um ícone de carrinho que, ao ser clicado, leva à página do carrinho. Inicialmente, o carrinho deverá estar vazio.
 
-1. O caminho raiz do projeto (`/`) deve renderizar o componente `MovieList`.
+### 3. Listar as categorias de produtos disponíveis via API na página principal
 
-2. O caminho `movies/:id` deve renderizar o componente `MovieDetails`. Onde o `:id` é o parâmetro da URL que representa ID do filme que `MovieDetails` renderizará.
+  Um endpoint da API do Mercado Livre retorna as categorias de produto disponíveis para busca. Em momento posterior tais categorias serão usadas para filtrar a listagem de produtos. Por hora, elas devem ser listadas na tela da listagem, conforme protótipo.
 
-3. O caminho `/movies/new` deve renderizar o componente `NewMovie`.
+### 4. Buscar por termos e receber uma listagem de produtos, com dados resumidos, associados a esses termos
 
-4. O caminho `movies/:id/edit` deve renderizar o componente `EditMovie`. `:id` é um parâmetro de URL com o id do filme que `EditMovie` possibilitará editar.
+  A alma do site é a sua lógica de busca e listagem de produtos. Após digitar seus termos na caixa de busca uma requisição deverá ser feita à API do Mercado Livre, tendo como parâmetros a frase digitada, e tais produtos deverão aparecer na tela numa exibição resumida, conforme protótipo anexo.
 
-5. Qualquer outro caminho que não se enquadre nas rotas anteriores deve renderizar o componente `NotFound`.
+### 5. Selecionar uma categoria e ver somente produtos daquela categoria
 
-### 4 - Ao ser montado, `MovieList` deve fazer uma requisição para buscar a lista de filmes a ser renderizada
+  A página, agora, deve poder usar as categorias recuperadas da API para filtrar os produtos buscados. Os termos e as categorias inseridas por quem usa devem ser usados em conjunto para filtragens mais específicas.
 
-Para buscar a lista, você deve utilizar a função `getMovies` importada do módulo `movieAPI` em `MovieList`. Essa função retorna uma _promise_. A requisição deve ser feita no momento em que o `MovieList` for montado no DOM. Enquanto a requisição estiver em curso, `MovieList` deve renderizar o componente `Loading`, como ilustrado na imagem a seguir.
+### 6. Clicar na exibição resumida de um produto e ir para uma tela com sua exibição detalhada
 
-![image](loading.png)
+  A exibição detalhada de um produto será a página para exibir tudo o que se tem acerca de um produto específico.
 
-Uma vez que a requisição retornar, o resultado deve ser renderizado. Para cada filme, renderize um componente `MovieCard`, como ilustrado abaixo.
+### 7. Adicionar uma quantidade arbitrária de um produto ao carrinho a partir de sua tela de exibição detalhada
 
-![image](index.png)
+  Poder adicionar produtos ao carrinho a partir de sua tela de exibição detalhada será um canal importante de conversões de venda.
 
-Você precisará adicionar um estado em `MovieList` para controlar o que será exibido.
+### 8. Avaliar e comentar acerca de um produto em sua tela de exibição detalhada
 
-### 5 - `MovieCard` deve possuir um link para a página de detalhes de um filme
+  Avaliações positivas de um produto contribuem para boas vendas e nos dão insumos para, no tempo, destacarmos os produtos melhores e fazermos anúncios direcionados. Produtos ruins, de forma análoga, podem eventualmente ser penalizados por avaliações ruins.
 
-Cada cartão da lista deve conter em seu rodapé um link com o texto "VER DETALHES". Este link deve apontar para a rota `movies/:id`, onde `:id` é o id do filme. Esta rota exibirá informações detalhadas de um filme.
+### 9. Visualizar a lista de produtos adicionados ao carrinho em sua página e manipular sua quantidade
 
-### 6 - Ao ser montado, `MovieDetails` deve fazer uma requisição para buscar o filme que deverá ser renderizado
+  São operações básicas de carrinho a alteração da quantidade de um determinado produto nele e a visualização de tudo o que foi adicionado, com a soma dos valores.
 
-`MovieDetails` se comporta de forma muito semelhante ao `MovieList`. Ao ser montado, deve fazer uma requisição utilizando a função `getMovie` do módulo `movieAPI`, passando o id do filme. O componente `Loading` deve ser renderizado enquanto a requisição estiver em curso. Após terminar, deve-se renderizar o card com detalhes sobre o filme.
+### 10. Adicionar produtos a partir da tela de listagem de produtos
 
-### 7 - `MovieDetails` deve possuir um link para a página de edição de filmes.
+  Múltiplas formas fáceis de adicionar um produto ao carrinho impactam positivamente nas taxas de conversão.
 
-No rodapé do cartão, deve haver um link com o texto "EDITAR" apontando para a rota `/movies/:id/edit`, conforme ilustrado na imagem abaixo.
+### 11. Finalizar compra, vendo um resumo dela, preenchendo os meus dados e escolhendo a forma de pagamento
 
-![image](card-details.png)
+  O último grande passo do fluxo do e-commerce é a finalização da compra por parte de quem usa.
 
-### 8 - `MovieDetails` deve possuir um link para voltar à pagina inicial
+### 12. Ver junto ao ícone do carrinho a quantidade de produtos dentro dele, em todas as telas em que ele aparece
 
-No rodapé do cartão, deve haver um link apontando para a rota raiz (`/`) com o texto "VOLTAR", conforme ilustrado na imagem acima.
+  A partir de uma pesquisa com usuários e concorrentes, identificamos que existe a necessidade de uma visualização da quantidade de produtos do carrinho de uma forma dinâmica e acessível.
 
-### 9 - Ao ser montado, `EditMovie` deve realizar uma requisição para buscar o filme que será editado.
+### 13. Navegar por um e-commerce estilizado em CSS
 
-O comportamento de `EditMovie` é muito semelhante ao de `MovieDetails`. `EditMovie`, no entando, renderizará o formulário de edição de filme.
+  Uma navegação em _wireframes_ não é uma experiência de uso agradável. Uma vez que nenhum design do produto foi especificado, no entanto, cabe a quem programa estilizar o site.
 
-### 10 - Ao submeter o formulário, `EditMovie` deve atualizar o filme e redirecionar a página para a rota raiz.
+### BÔNUS:
 
-O componente `MovieForm` recebe uma callback, que será executada quando o formulário for submetido. Essa callback recebe os dados atualizados do filme. Neste momento, `EditMovie` deve fazer uma requisição utilizando a função `updateMovie` do módulo `movieAPI`, passando como argumentos os dados atualizados. Quando a requisição finalizar, `EditMovie` deve redirecionar o app para a rota raiz (`/`).
+### 1. A quantidade de produtos adicionados ao carrinho deve ser limitada pela quantidade disponível em estoque
 
-### 11 - Na página inicial, deve haver um link para criar novos cartões.
+  Produtos tem disponibilidades limitadas. É uma péssima experiência de uso adicionar ao carrinho produtos que, no fim do processo, não se pode comprar.
 
-O link deve conter o texto "ADICIONAR CARTÃO" e apontar para a rota `/movies/new`, contento um formulário para criar novos cartões.
+### 2. Ver quais produtos tem frete grátis
 
-### 12 - Ao submeter o formulário, `NewMovie` deve criar um novo filme e redirecionar o app para a página inicial.
+  As pessoas que vendem no Mercado Livre disponibilizam frete grátis a alguns produtos. Devemos incorporar isso ao e-commerce.
 
-Utilizando a callback passada para `MovieForm`, `NewMovie` deve criar um novo cartão utilizando a função `createMovie` do módulo `movieAPI`. Após o fim da requisição, `NewMovie` deve redirecionar o app para a página inicial, contento o novo cartão.
+### 3. Ter uma boa experiência de aparelhos mobile
 
-### 13 - Adicione proptypes a todos os componentes
+  A maior parte dos acessos a qualquer site hoje em dia vem de dispositivos mobile. Precisamos de um layout responsivo para nos adequarmos a essa demanda. Como o designer não construiu esses protótipos, cabe a quem programa fazê-los.
 
-Todos os compontens que recebem _props_ devem ter suas _proptypes_ corretamente declaradas. O _eslint_ checa automaticamente declaração de _proptypes_, portanto seu _Pull Request_ deverá passar no _Code Climate_ para satisfazer esse requisito.
+### 4. Ordenar os produtos da listagem por preço
 
-### Bônus: Adicione um link para deletar um cartão em `MovieDetails`.
+  Um importante critério para escolha de compra de produtos é o preço. Por isso, precisamos poder organizar a nossa listagem de acordo.
 
-Ao clicar neste link, faça uma requisição utilizando a função `deleteMovie` do módulo `movieAPI`. Após finalizar a requisição, redirecione o app para a página inicial. O cartão apagado não deverá mais se encontrar na lista.
+### 5. Ter os dados de compra de quem compra validados antes da compra ser efetuada
+
+  Se os dados de compra de quem usa não são validados automáticamente temos uma quantidade grande de compras estornadas por informações inseridas incorretamente. Não queremos isso.
+
+### 6. Ver com clareza que um produto foi adicionado ou removido do carrinho
+
+  A equipe de produto definiu, em testes de usabilidade, que ter uma animação na página identificando que um produto foi adicionado ou removido do carrinho é positivo na experiência de quem usa.
+
+### 7. Ver o conteúdo do meu carrinho sem sair da página em que estou
+
+  Verificar o conteúdo do carrinho e sair o tempo todo prejudica a experiência de navegação de quem usa no e-commerce.
+
+### 8. Identificar na listagem de produtos os que eu já adicionei ao carrinho
+
+  A listagem de produtos pode ficar muito grande e confusa. Identificar quais produtos já foram adicionados ao carrinho é um diferencial positivo para a experiência de quem usa.
 
 ---
 
@@ -123,9 +381,9 @@ Ao clicar neste link, faça uma requisição utilizando a função `deleteMovie`
 ### ANTES DE COMEÇAR A DESENVOLVER:
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-02-week13-movie-card-library-crud.git`.
+  * `git clone git@github.com:tryber/sd-02-week14-project-frontend-online-store-3.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-02-week13-movie-card-library-crud`
+    * `cd sd-02-week14-project-frontend-online-store-3`
 
 2. Instale as dependências e inicialize o projeto
   * Instale as dependências:
@@ -133,55 +391,46 @@ Ao clicar neste link, faça uma requisição utilizando a função `deleteMovie`
   * Inicialize o projeto:
     * `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
 
-3. Crie uma branch a partir da branch `master`
+3. Faça alterações separadas por novas branchs criadas a partir da branch do grupo, criando uma nova branch para cada demanda
   * Verifique que você está na branch `master`
     * Exemplo: `git branch`
   * Se não estiver, mude para a branch `master`
     * Exemplo: `git checkout master`
-  * Agora, crie uma branch onde você vai guardar os `commits` do seu projeto
-    * Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-    * Exemplo: `git checkout -b joaozinho-movie-card-library-crud`
+  * Agora, crie uma branch para a demanda que você vai desenvolver do seu projeto
+    * Você deve criar uma branch com uma breve descrição da demanda a ser desenvolvida
+    * Exemplo: `git checkout -b criar-campo-de-busca`
 
-4. Faça alterações em algum dos componentes que precisam de implementação, por exemplo o `App` em `src/`:
-```jsx
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
-
-function App() {
-  return (
-    <Router>
-      <div>Movie Card Library CRUD</div>
-    </Router>
-  );
-}
-
-export default App;
-```
-
-5. Adicione as mudanças ao _stage_ do Git e faça um `commit`
+4. Adicione as mudanças ao _stage_ do Git e faça um `commit`
   * Verifique que as mudanças ainda não estão no _stage_
-    * Exemplo: `git status` (deve aparecer listado o arquivo _src/App.js_ em vermelho)
+    * Exemplo: `git status` (devem aparecer listadas as novas alterações em vermelho)
   * Adicione o arquivo alterado ao _stage_ do Git
       * Exemplo:
         * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (deve aparecer listado o arquivo _src/App.js_ em verde)
-  * Faça o `commit` inicial
+        * `git status` (devem aparecer listadas as novas alterações em verde)
+  * Faça seus `commit`
       * Exemplo:
-        * `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
+        * `git commit -m 'criando componente de busca`
         * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
 
-6. Adicione a sua branch com o novo `commit` ao repositório remoto
-  * Usando o exemplo anterior: `git push -u origin joaozinho-movie-cards-library-crud`
+5. Adicione a sua branch com o novo `commit` ao repositório remoto
+  * Usando o exemplo anterior: `git push -u origin criar-campo-de-busca`
 
-7. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-02-week13-movie-card-library-crud/pulls)
+6. Crie um novo `Pull Request` _(PR)_
+  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-02-week14-project-frontend-online-store-3/pulls)
   * Clique no botão verde _"New pull request"_
-  * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
+  * Clique na caixa de seleção _"Compare"_ e escolha a branch do grupo e a sua branch **com atenção**
   * Clique no botão verde _"Create pull request"_
   * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
   * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-02-week13-movie-card-library-crud/pulls) e confira que o seu _Pull Request_ está criado
+  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-02-week14-project-frontend-online-store-3/pulls) e confira que o seu _Pull Request_ está criado
+
+7. Após finalizar as alterações do seu _Pull Request_:
+  * Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque as pessoas do seu grupo
+  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
+  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
+  * No menu à direita, clique no _link_ **"Reviewers"** e selecione dois membros do seu grupo
+
+8. Assim que aprovado por pelo menos duas pessoas do seu grupo e o _Code Climate_ estiver adereçado, acesse **SEU** _Pull Request_ e clique no botão _"Merge pull request"_
 
 ---
 
@@ -202,25 +451,12 @@ export default App;
 
 ---
 
-### DEPOIS DE TERMINAR O DESENVOLVIMENTO
-
-Para **"entregar"** seu projeto, siga os passos a seguir:
-
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-02`
-
-Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um video explicativo](https://vimeo.com/362189205).
-
----
-
 ### REVISANDO UM PULL REQUEST
 
 ⚠⚠⚠
 
-À medida que você e os outros alunos forem entregando os projetos, vocês serão alertados **via Slack** para também fazer a revisão dos _Pull Requests_ dos seus colegas. Fiquem atentos às mensagens do _"Pull Reminders"_ no _Slack_!
+À medida que você e os outros estudantes forem entregando as demandas do seu grupo, vocês serão alertados **via Slack** para também fazer a revisão dos _Pull Requests_ dos seus colegas. Fiquem atentos às mensagens do _"Pull Reminders"_ no _Slack_!
 
-Os monitores também farão a revisão de todos os projetos, e irão avaliar tanto o seu _Pull Request_, quanto as revisões que você fizer nos _Pull Requests_ dos seus colegas!!!
+Os monitores irão avaliar as revisões que você fizer nos _Pull Requests_ dos seus colegas!!!
 
 Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você.
