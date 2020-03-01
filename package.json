@@ -1,6 +1,6 @@
 {
   "homepage": "https://lucas-werner.github.io/projeto-localiza",
-  "name": "movie-database-crud",
+  "name": "projeto-localiza",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
