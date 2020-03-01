@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ProductItem from './CarItem';
-import './ProductList.css';
+import './carList.css';
 
 class ProductList extends Component {
   

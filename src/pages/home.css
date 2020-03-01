@@ -1,41 +1,8 @@
-body {
-  margin-left: 30px;
-}
+/* .bg-light {
+  background-color: #f37931!important;
+} */
 
-button {
-  cursor: pointer;
-}
-
-.categories {
-  cursor: pointer;
-}
-
-
-.category_content {
-  border: 1px solid black;
-  height: 700px;
-  padding-left: 20px;
-  width: 300px;
-}
-
-.header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 700px;
-}
-
-.input-search {
-  width: 600px;
-}
-
-.productList {
-  width: 1500px;
-}
-
-.main_content {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
+.wernitcho{
+  width: 130px;
+  height: 55px;
 }

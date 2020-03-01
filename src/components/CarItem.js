@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './ProductItem.css';
+import './carItem.css';
 
 class ProductItem extends Component {
   render() {
