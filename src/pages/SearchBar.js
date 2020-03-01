@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import Header from '../components/header'
 import ProductList from '../components/ProductList';
 import './SearchBar.css';
 
@@ -49,11 +50,11 @@ class SearchBar extends Component {
     const { query } = this.state;
     return (
       <div className="main_page">
+      <Header />
         {this.createInputSearch()}
         <div className="main_content">          
           <div className="productList">
-            <ProductList  
-             
+            <ProductList             
               query={query}
             />
           </div>

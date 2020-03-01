@@ -12,7 +12,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={SearchBar} />
           <Route path="/products/:id" component={ProductDetails} />         
-          <Route path="*" component={NotFound} />
+          <Route path='*' component={NotFound} />
         </Switch>
       </BrowserRouter>
     </main>
