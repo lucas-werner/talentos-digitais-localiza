@@ -49,7 +49,7 @@ class MovieForm extends React.Component {
             type="text"
             className="validate"
             value={ranking}
-            onChange={(event) => this.updateMovie('title', event.target.value)}
+            onChange={(event) => this.updateMovie('ranking', event.target.value)}
           />
           <label className="active" htmlFor="movie_title">Ranking</label>
         </div>
@@ -70,7 +70,7 @@ class MovieForm extends React.Component {
             type="text"
             className="validate"
             value={units}
-            onChange={(event) => this.updateMovie('subtitle', event.target.value)}
+            onChange={(event) => this.updateMovie('units', event.target.value)}
           />
           <label className="active" htmlFor="movie_subtitle">Unidades Vendidas</label>
         </div>
@@ -108,7 +108,7 @@ class MovieForm extends React.Component {
             id="movie_storyline"
             className="materialize-textarea"
             value={specs}
-            onChange={(event) => this.updateMovie('storyline', event.target.value)}
+            onChange={(event) => this.updateMovie('specs', event.target.value)}
           />
           <label className="active" htmlFor="movie_storyline">Especificações técnicas</label>
         </div>
@@ -128,34 +128,9 @@ class MovieForm extends React.Component {
             type="text"
             className="validate"
             value={price}
-            onChange={(event) => this.updateMovie('subtitle', event.target.value)}
+            onChange={(event) => this.updateMovie('price', event.target.value)}
           />
           <label className="active" htmlFor="movie_subtitle">Preço</label>
-        </div>
-      </div>
-    );
-  }
-
-
-
-  renderRatingInput() {
-    const { rating } = this.state;
-
-    return (
-      <div className="row">
-        <div className="input-field col s12">
-          <input
-            placeholder="Dê a avaliação do filme"
-            id="movie_rating"
-            type="number"
-            className="form-control"
-            step={0.1}
-            min={0}
-            max={5}
-            value={rating}
-            onChange={(event) => this.updateMovie('rating', event.target.value)}
-          />
-          <label className="active" htmlFor="movie_rating">Avaliação</label>
         </div>
       </div>
     );
