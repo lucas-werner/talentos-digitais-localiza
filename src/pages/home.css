@@ -7,11 +7,11 @@
 .social-logo{
   justify-content: center;
   align-items: center;
-  margin-top: 8px; 
+  margin: 8px 5px; 
   padding: 5px; 
 }
 
-
-.social-logo svg {
- 
+.input-car  {
+  width: 300px!important;  
 }
+
