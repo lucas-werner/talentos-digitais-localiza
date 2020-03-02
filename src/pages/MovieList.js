@@ -23,11 +23,8 @@ class MovieList extends Component {
     return (
       <div>
         <div style={{ textAlign: 'center' }}>
-          <Link to="/movies/new" className="card-action">ADICIONAR CARTÃO</Link>
-        <br></br>
-        <br></br>
-        <br></br>
-      
+        <h1 className="title">Carros mais vendidos de 2019</h1>
+          <span>Faltou algum modelo? </span><Link to="/movies/new" className="card-action">Adicione aqui.</Link>   
         </div>
         <div className="movie-list">
           {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}

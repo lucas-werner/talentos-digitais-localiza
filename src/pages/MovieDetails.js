@@ -31,7 +31,7 @@ class MovieDetails extends Component {
   render() {
     const { movie, isShouldRedirect } = this.state;
     const {
-      title, storyline, imagePath, genre, rating, subtitle, id,
+      title, ranking, units, imagePath, price, specs,
     } = movie;
 
     if (isShouldRedirect) return <Redirect to="/" />;
@@ -51,6 +51,7 @@ class MovieDetails extends Component {
               <p>{`Storyline: ${storyline}`}</p>
               <p>{`Genre: ${genre}`}</p>
               <p>{`Rating: ${rating}`}</p>
+              <a href="https://seminovos.localiza.com/">Confira na Localiza!</a>
             </div>
             <div className="card-action">
               <Link to={`/movies/${id}/edit`}>EDITAR</Link>
