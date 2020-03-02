@@ -87,15 +87,14 @@ class SearchBar extends Component {
     if (!isShouldRedirect) {
       return (
         <div className="main_page">
-          {this.createNavBar()}
-         
+          {this.createNavBar()}         
               </div>
       );
     }
     return (
       <div className="main_page">
         {this.createNavBar()}
-        Insis paradas aí.ra uma
+       
           <div>
           <div className="productList">
             <ProductList
