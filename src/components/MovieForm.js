@@ -24,34 +24,55 @@ class MovieForm extends React.Component {
       <div className="row">
         <div className="input-field col s12">
           <input
-            placeholder="Insira o título"
+            placeholder="Insira a marca e o modelo do carro (Ex. GM Corsa)"
             id="movie_title"
             type="text"
             className="validate"
             value={title}
             onChange={(event) => this.updateMovie('title', event.target.value)}
           />
-          <label className="active" htmlFor="movie_title">Título</label>
+          <label className="active" htmlFor="movie_title">Marca e modelo</label>
         </div>
       </div>
     );
   }
 
-  renderSubtitleInput() {
-    const { subtitle } = this.state;
+  renderRankingInput() {
+    const { ranking } = this.state;
 
     return (
       <div className="row">
         <div className="input-field col s12">
           <input
-            placeholder="Insira o subtítulo"
+            placeholder="Insira o posicionamento no ranking dos mais vendidos."
+            id="movie_title"
+            type="text"
+            className="validate"
+            value={ranking}
+            onChange={(event) => this.updateMovie('title', event.target.value)}
+          />
+          <label className="active" htmlFor="movie_title">Ranking</label>
+        </div>
+      </div>
+    );
+  }
+
+
+  renderUnitsInput() {
+    const { units } = this.state;
+
+    return (
+      <div className="row">
+        <div className="input-field col s12">
+          <input
+            placeholder="Insira o número de unidades vendidas em 2019"
             id="movie_subtitle"
             type="text"
             className="validate"
-            value={subtitle}
+            value={units}
             onChange={(event) => this.updateMovie('subtitle', event.target.value)}
           />
-          <label className="active" htmlFor="movie_subtitle">Subtítulo</label>
+          <label className="active" htmlFor="movie_subtitle">Unidades Vendidas</label>
         </div>
       </div>
     );
@@ -77,8 +98,8 @@ class MovieForm extends React.Component {
     );
   }
 
-  renderStorylineInput() {
-    const { storyline } = this.state;
+  renderSpecsInput() {
+    const { specs } = this.state;
 
     return (
       <div className="row">
@@ -86,33 +107,36 @@ class MovieForm extends React.Component {
           <textarea
             id="movie_storyline"
             className="materialize-textarea"
-            value={storyline}
+            value={specs}
             onChange={(event) => this.updateMovie('storyline', event.target.value)}
           />
-          <label className="active" htmlFor="movie_storyline">Sinopse</label>
+          <label className="active" htmlFor="movie_storyline">Especificações técnicas</label>
         </div>
       </div>
     );
   }
 
-  renderGenreSelection() {
-    const { genre } = this.state;
+  renderPriceInput() {
+    const { price } = this.state;
 
     return (
-      <div className="row col">
-        <label htmlFor="movie_genre">Genre Select</label>
-        <select
-          className="browser-default"
-          value={genre}
-          onChange={(event) => this.updateMovie('genre', event.target.value)}
-        >
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select>
+      <div className="row">
+        <div className="input-field col s12">
+          <input
+            placeholder="Insira o valor de mercado"
+            id="movie_subtitle"
+            type="text"
+            className="validate"
+            value={price}
+            onChange={(event) => this.updateMovie('subtitle', event.target.value)}
+          />
+          <label className="active" htmlFor="movie_subtitle">Preço</label>
+        </div>
       </div>
     );
   }
+
+
 
   renderRatingInput() {
     const { rating } = this.state;
@@ -157,11 +181,11 @@ class MovieForm extends React.Component {
         <div className="row">
           <form className="col s12">
             {this.renderTitleInput()}
-            {this.renderSubtitleInput()}
+            {this.renderUnitsInput()}
+            {this.renderRankingInput()}
             {this.renderImagePathInput()}
-            {this.renderStorylineInput()}
-            {this.renderGenreSelection()}
-            {this.renderRatingInput()}
+            {this.renderPriceInput()}
+            {this.renderSpecsInput()}            
             {this.renderSubmitButton()}
           </form>
         </div>

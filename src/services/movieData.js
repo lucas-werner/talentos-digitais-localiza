@@ -5,6 +5,8 @@ const movies = [
     ranking: "1º",
     units: '241.214',
     imagePath: 'images/onix.png',
+    price: "",
+    specs: "",
     bookmarked: true,    
   },
   {
@@ -13,6 +15,8 @@ const movies = [
     ranking: "2º",
     units: '104.331',
     imagePath: 'images/ka.png',
+    price: "",
+    specs: "",
     bookmarked: false,    
   },
   {
@@ -21,6 +25,8 @@ const movies = [
     ranking: "3º",
     units: '101.590',
     imagePath: 'images/hb20.png',
+    price: "",
+    specs: "",
     bookmarked: true,    
   },
   {
@@ -29,6 +35,8 @@ const movies = [
     ranking: "4º",
     units: '85.117',
     imagePath: 'images/kwid.png',
+    price: "",
+    specs: "",
     bookmarked: false,    
   },
   {
@@ -37,6 +45,8 @@ const movies = [
     ranking: '5º',
     units: '81.285',
     imagePath: 'images/gol.png',
+    price: "",
+    specs: "",
     bookmarked: true,    
   },
 ];
