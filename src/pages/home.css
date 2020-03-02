@@ -2,7 +2,29 @@
   background-color: #f37931!important;
 } */
 
-.wernitcho{
+.logo{
   width: 130px;
   height: 55px;
 }
+/* 
+.socialSection {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.socialSection a {
+  color: #396fb4;
+  text-decoration: none;
+  margin: 10px;
+  display: inline-block;
+  -webkit-transition: opacity .1s ease-in-out;
+  transition: opacity .1s ease-in-out;
+}
+
+.socialSection a:hover {
+  opacity: .7;
+} */
