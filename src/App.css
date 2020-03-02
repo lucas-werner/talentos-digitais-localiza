@@ -1,6 +1,23 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgba(247, 227, 208, 0.664);
   box-sizing: border-box;
+}
+
+.card .card-image .card-title {
+  text-shadow: 2px 3px black;
+}
+
+.ranking{
+  color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 24px;
+    font-size: 24px;
+    font-weight: 300;
+    text-shadow: 2px 2px #f37931;
+    margin-bottom: 150px;
 }
 
 .movie-list {
@@ -10,7 +27,7 @@ body {
 }
 
 .movie-card {
-  width: 400px;
+  width: 500px;
 }
 
 .movie-form {
