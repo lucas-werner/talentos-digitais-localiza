@@ -1,30 +1,16 @@
-/* .bg-light {
-  background-color: #f37931!important;
-} */
-
 .logo{
   width: 130px;
   height: 55px;
-}
-/* 
-.socialSection {
-  position: fixed;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  text-align: center;
+  margin-right: 80px;
 }
 
-.socialSection a {
-  color: #396fb4;
-  text-decoration: none;
-  margin: 10px;
-  display: inline-block;
-  -webkit-transition: opacity .1s ease-in-out;
-  transition: opacity .1s ease-in-out;
+.social-logo{
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;  
 }
 
-.socialSection a:hover {
-  opacity: .7;
-} */
+
+.social-logo svg {
+ 
+}
