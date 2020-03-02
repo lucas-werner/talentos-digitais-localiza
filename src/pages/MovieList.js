@@ -24,6 +24,10 @@ class MovieList extends Component {
       <div>
         <div style={{ textAlign: 'center' }}>
           <Link to="/movies/new" className="card-action">ADICIONAR CARTÃO</Link>
+        <br></br>
+        <br></br>
+        <br></br>
+      
         </div>
         <div className="movie-list">
           {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
