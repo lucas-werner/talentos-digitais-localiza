@@ -4,6 +4,7 @@ import Logo from '../imgs/werner.png'
 import GitHub from '../imgs/git-hub.svg'
 import LinkedIn from '../imgs/linkedin.svg'
 import ProductList from '../components/CarList';
+import MovieList from './MovieList'
 import * as productAPI from '../services/productAPI';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -87,7 +88,8 @@ class SearchBar extends Component {
     if (!isShouldRedirect) {
       return (
         <div className="main_page">
-          {this.createNavBar()}         
+          {this.createNavBar()}  
+          <MovieList />       
               </div>
       );
     }
