@@ -3,7 +3,7 @@ import Logo from '../images/werner.png'
 import GitHub from '../images/git-hub.svg'
 import LinkedIn from '../images/linkedin.svg'
 import ProductList from '../components/queryList';
-import MovieList from './CarList'
+import CarList from './CarList'
 import * as productAPI from '../services/queryAPI';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -88,7 +88,7 @@ class SearchBar extends Component {
       return (
         <div className="main_page">
           {this.createNavBar()}  
-          <MovieList />       
+          <CarList />       
               </div>
       );
     }

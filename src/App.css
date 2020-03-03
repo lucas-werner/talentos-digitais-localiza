@@ -20,17 +20,17 @@ body {
     margin-bottom: 150px;
 }
 
-.movie-list {
+.car-list {
   display: flex;
   flex-flow: row wrap;
   padding: 48px 30px;
 }
 
-.movie-card {
+.car-card {
   width: 500px;
 }
 
-.movie-form {
+.car-form {
   margin: auto;
   margin-top: 20px;
   width: 80%;

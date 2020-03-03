@@ -15,9 +15,9 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/products/:id" component={QueryDetails} />
-          <Route exact path="/movies/new" component={NewCar} />
-          <Route exact path="/movies/:id/edit" component={EditCar} />
-          <Route exact path="/movies/:id" component={CarDetails} />         
+          <Route exact path="/cars/new" component={NewCar} />
+          <Route exact path="/cars/:id/edit" component={EditCar} />
+          <Route exact path="/cars/:id" component={CarDetails} />         
           <Route path='*' component={NotFound} />
         </Switch>
       </BrowserRouter>

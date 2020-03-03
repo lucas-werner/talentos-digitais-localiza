@@ -11,9 +11,9 @@ class ProductItem extends Component {
     return (
       <div className="row">
         <div className="col s12 m7">
-          <div className="card movie-card">
+          <div className="card car-card">
             <div className="card-image">
-              <img alt="Movie Cover" className="movie-card-image" src={thumbnail} />
+              <img alt="Car Cover" className="car-card-image" src={thumbnail} />
               <span className="card-title">{title}</span>
             </div>
             <div className="card-content">

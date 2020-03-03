@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class MovieForm extends React.Component {
+class CarForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...props.movie };
+    this.state = { ...props.car };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -13,7 +13,7 @@ class MovieForm extends React.Component {
     onSubmit(this.state);
   }
 
-  updateMovie(field, newValue) {
+  updateCar(field, newValue) {
     this.setState({ [field]: newValue });
   }
 
@@ -25,13 +25,13 @@ class MovieForm extends React.Component {
         <div className="input-field col s12">
           <input
             placeholder="Insira a marca e o modelo do carro (Ex. GM Corsa)"
-            id="movie_title"
+            id="car_title"
             type="text"
             className="validate"
             value={title}
-            onChange={(event) => this.updateMovie('title', event.target.value)}
+            onChange={(event) => this.updateCar('title', event.target.value)}
           />
-          <label className="active" htmlFor="movie_title">Marca e modelo</label>
+          <label className="active" htmlFor="car_title">Marca e modelo</label>
         </div>
       </div>
     );
@@ -45,13 +45,13 @@ class MovieForm extends React.Component {
         <div className="input-field col s12">
           <input
             placeholder="Insira o posicionamento no ranking dos mais vendidos."
-            id="movie_title"
+            id="car_title"
             type="text"
             className="validate"
             value={ranking}
-            onChange={(event) => this.updateMovie('ranking', event.target.value)}
+            onChange={(event) => this.updateCar('ranking', event.target.value)}
           />
-          <label className="active" htmlFor="movie_title">Ranking</label>
+          <label className="active" htmlFor="car_title">Ranking</label>
         </div>
       </div>
     );
@@ -66,13 +66,13 @@ class MovieForm extends React.Component {
         <div className="input-field col s12">
           <input
             placeholder="Insira o número de unidades vendidas em 2019"
-            id="movie_subtitle"
+            id="car_subtitle"
             type="text"
             className="validate"
             value={units}
-            onChange={(event) => this.updateMovie('units', event.target.value)}
+            onChange={(event) => this.updateCar('units', event.target.value)}
           />
-          <label className="active" htmlFor="movie_subtitle">Unidades Vendidas</label>
+          <label className="active" htmlFor="car_subtitle">Unidades Vendidas</label>
         </div>
       </div>
     );
@@ -86,13 +86,13 @@ class MovieForm extends React.Component {
         <div className="input-field col s12">
           <input
             placeholder="Insira o caminho da imagem"
-            id="movie_image"
+            id="car_image"
             type="text"
             className="validate"
             value={imagePath}
-            onChange={(event) => this.updateMovie('imagePath', event.target.value)}
+            onChange={(event) => this.updateCar('imagePath', event.target.value)}
           />
-          <label className="active" htmlFor="movie_image">Imagem</label>
+          <label className="active" htmlFor="car_image">Imagem</label>
         </div>
       </div>
     );
@@ -105,12 +105,12 @@ class MovieForm extends React.Component {
       <div className="row">
         <div className="input-field col s12">
           <textarea
-            id="movie_storyline"
+            id="car_storyline"
             className="materialize-textarea"
             value={specs}
-            onChange={(event) => this.updateMovie('specs', event.target.value)}
+            onChange={(event) => this.updateCar('specs', event.target.value)}
           />
-          <label className="active" htmlFor="movie_storyline">Especificações técnicas</label>
+          <label className="active" htmlFor="car_storyline">Especificações técnicas</label>
         </div>
       </div>
     );
@@ -124,13 +124,13 @@ class MovieForm extends React.Component {
         <div className="input-field col s12">
           <input
             placeholder="Insira o valor de mercado"
-            id="movie_subtitle"
+            id="car_subtitle"
             type="text"
             className="validate"
             value={price}
-            onChange={(event) => this.updateMovie('price', event.target.value)}
+            onChange={(event) => this.updateCar('price', event.target.value)}
           />
-          <label className="active" htmlFor="movie_subtitle">Preço</label>
+          <label className="active" htmlFor="car_subtitle">Preço</label>
         </div>
       </div>
     );
@@ -152,7 +152,7 @@ class MovieForm extends React.Component {
 
   render() {
     return (
-      <div className="movie-form">
+      <div className="car-form">
         <div className="row">
           <form className="col s12">
             {this.renderTitleInput()}
@@ -169,8 +169,8 @@ class MovieForm extends React.Component {
   }
 }
 
-MovieForm.propTypes = {
-  movie: PropTypes.shape({
+CarForm.propTypes = {
+  car: PropTypes.shape({
     rating: PropTypes.number,
     title: PropTypes.string,
     subtitle: PropTypes.string,
@@ -181,4 +181,4 @@ MovieForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default MovieForm;
+export default CarForm;

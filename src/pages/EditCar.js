@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import { MovieForm, Loading } from '../components';
-import * as movieAPI from '../services/carAPI';
+import { CarForm, Loading } from '../components';
+import * as carAPI from '../services/carAPI';
 
-class EditMovie extends Component {
+class EditCar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       status: 'loading',
       shouldRedirect: '',
-      movie: '',
+      car: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    movieAPI.getMovie(this.props.match.params.id)
-      .then((movie) => this.setState({
+    carAPI.getCar(this.props.match.params.id)
+      .then((car) => this.setState({
         status: '',
         shouldRedirect: '',
-        movie,
+        car,
       }));
   }
 
@@ -30,13 +30,13 @@ class EditMovie extends Component {
     );
   }
 
-  handleSubmit(updatedMovie) {
-    movieAPI.updateMovie(updatedMovie);
-    this.setState({ status: '', shouldRedirect: true, movie: updatedMovie });
+  handleSubmit(updatedCar) {
+    carAPI.updateCar(updatedCar);
+    this.setState({ status: '', shouldRedirect: true, car: updatedCar });
   }
 
   render() {
-    const { status, shouldRedirect, movie } = this.state;
+    const { status, shouldRedirect, car } = this.state;
     if (shouldRedirect) {
       return (
         <Redirect to="/" />
@@ -50,15 +50,15 @@ class EditMovie extends Component {
     }
 
     return (
-      <MovieForm movie={movie} onSubmit={this.handleSubmit} />
+      <CarForm car={car} onSubmit={this.handleSubmit} />
     );
   }
 }
 
-EditMovie.propTypes = {
+EditCar.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({ id: PropTypes.number }),
   }).isRequired,
 };
 
-export default EditMovie;
+export default EditCar;

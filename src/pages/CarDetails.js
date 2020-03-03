@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import * as movieAPI from '../services/carAPI';
+import * as carAPI from '../services/carAPI';
 import { Loading } from '../components';
 
-class MovieDetails extends Component {
+class CarDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: '',
+      car: '',
       isShouldRedirect: false,
     };
 
@@ -16,34 +16,34 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    movieAPI.getMovie(this.props.match.params.id)
-      .then((movie) => this.setState({ movie }));
+    carAPI.getCar(this.props.match.params.id)
+      .then((car) => this.setState({ car }));
   }
 
   onChangeRedirect() {
-    const { id } = this.state.movie;
-    movieAPI.deleteMovie(id);
+    const { id } = this.state.car;
+    carAPI.deleteCar(id);
     this.setState({
       isShouldRedirect: true,
     });
   }
 
   render() {
-    const { movie, isShouldRedirect } = this.state;
+    const { car, isShouldRedirect } = this.state;
     const {
       title, ranking, units, imagePath, price, specs, id
-    } = movie;
+    } = car;
 
     if (isShouldRedirect) return <Redirect to="/" />;
 
-    if (!movie) return <Loading />;
+    if (!car) return <Loading />;
 
     return (
       <div className="row">
         <div className="col s12 m7">
           <div className="card">
             <div className="card-image">
-              <img alt="Movie Cover" src={`../${imagePath}`} />
+              <img alt="Car Cover" src={`../${imagePath}`} />
               <span className="card-title">{title}</span>
             </div>
             <div className="card-content">
@@ -55,7 +55,7 @@ class MovieDetails extends Component {
               <a href="https://seminovos.localiza.com/" target="_blank" rel="noopener noreferrer">Confira na Localiza!</a>
             </div>
             <div className="card-action">
-              <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+              <Link to={`/cars/${id}/edit`}>EDITAR</Link>
               <Link to="/">VOLTAR</Link>
               <button type="button" onClick={this.onChangeRedirect}>APAGAR</button>
             </div>
@@ -66,10 +66,10 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.propTypes = {
+CarDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({ id: PropTypes.number }),
   }).isRequired,
 };
 
-export default MovieDetails;
+export default CarDetails;

@@ -1,4 +1,4 @@
-const movies = [{
+const cars = [{
   id: 1,
   title: 'GM Onix',
   ranking: '1º',
@@ -50,4 +50,4 @@ const movies = [{
 },
 ];
 
-export default movies;
+export default cars;

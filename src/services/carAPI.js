@@ -1,38 +1,38 @@
 import data from './carData';
 
-localStorage.setItem('movies', JSON.stringify(data));
+localStorage.setItem('cars', JSON.stringify(data));
 
-const readMovies = () => JSON.parse(localStorage.getItem('movies'));
+const readCars = () => JSON.parse(localStorage.getItem('cars'));
 
-const saveMovies = (movies) => localStorage.setItem('movies', JSON.stringify(movies));
+const saveCars = (cars) => localStorage.setItem('cars', JSON.stringify(cars));
 
-export const getMovies = () => (
+export const getCars = () => (
   new Promise((resolve) => {
     setTimeout(() => {
-      const movies = readMovies();
-      resolve(movies);
+      const cars = readCars();
+      resolve(cars);
     }, 2000);
   })
 );
 
-export const getMovie = (movieId) => {
-  const movie = readMovies().find((mov) => mov.id === parseInt(movieId, 10));
+export const getCar = (carId) => {
+  const car = readCars().find((mov) => mov.id === parseInt(carId, 10));
 
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(movie);
+      resolve(car);
     }, 2000);
   });
 };
 
-export const updateMovie = (updatedMovie) => {
-  const movies = readMovies().map((movie) => {
-    if (movie.id === parseInt(updatedMovie.id, 10)) {
-      return { ...movie, ...updatedMovie };
+export const updateCar = (updatedCar) => {
+  const cars = readCars().map((car) => {
+    if (car.id === parseInt(updatedCar.id, 10)) {
+      return { ...car, ...updatedCar };
     }
-    return movie;
+    return car;
   });
-  saveMovies(movies);
+  saveCars(cars);
 
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -41,12 +41,12 @@ export const updateMovie = (updatedMovie) => {
   });
 };
 
-export const createMovie = (movieData) => {
-  let movies = readMovies();
-  const nextId = movies[movies.length - 1].id + 1;
-  const newMovie = { ...movieData, id: nextId };
-  movies = [...movies, newMovie];
-  saveMovies(movies);
+export const createCar = (carData) => {
+  let cars = readCars();
+  const nextId = cars[cars.length - 1].id + 1;
+  const newCar = { ...carData, id: nextId };
+  cars = [...cars, newCar];
+  saveCars(cars);
 
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -55,10 +55,10 @@ export const createMovie = (movieData) => {
   });
 };
 
-export const deleteMovie = (movieId) => {
-  let movies = readMovies();
-  movies = movies.filter((movie) => movie.id !== parseInt(movieId, 10));
-  saveMovies(movies);
+export const deleteCar = (carId) => {
+  let cars = readCars();
+  cars = cars.filter((car) => car.id !== parseInt(carId, 10));
+  saveCars(cars);
 
   return new Promise((resolve) => {
     setTimeout(() => {

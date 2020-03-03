@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import MovieCard from '../components/MovieCard';
-import * as movieAPI from '../services/carAPI';
+import CarCard from '../components/CarCard';
+import * as carAPI from '../services/carAPI';
 import { Loading } from '../components';
 
-class MovieList extends Component {
+class CarList extends Component {
   constructor(props) {
     super(props);
-    this.state = { movies: '' };
+    this.state = { cars: '' };
   }
 
   componentDidMount() {
-    movieAPI.getMovies()
-      .then((movies) => this.setState(
-        { movies },
+    carAPI.getCars()
+      .then((cars) => this.setState(
+        { cars },
       ));
   }
 
   render() {
-    const { movies } = this.state;
-    if (!movies) return <Loading />;
+    const { cars } = this.state;
+    if (!cars) return <Loading />;
     return (
       <div>
         <div style={{ textAlign: 'center' }}>
         <h1 className="title">Carros mais vendidos de 2019</h1>
-          <span>Faltou algum modelo? </span><Link to="/movies/new" className="card-action">Adicione aqui.</Link>   
+          <span>Faltou algum modelo? </span><Link to="/cars/new" className="card-action">Adicione aqui.</Link>   
         </div>
-        <div className="movie-list">
-          {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        <div className="car-list">
+          {cars.map((car) => <CarCard key={car.title} car={car} />)}
         </div>
 
       </div>
@@ -37,4 +37,4 @@ class MovieList extends Component {
   }
 }
 
-export default MovieList;
+export default CarList;
