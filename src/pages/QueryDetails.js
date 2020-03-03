@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 import CustomerRating from '../components/CustomerRating';
-import './carDetails.css';
-import * as productAPI from '../services/productAPI';
+import './queryDetails.css';
+import * as productAPI from '../services/queryAPI';
 
 class ProductDetails extends Component {
   constructor(props) {
