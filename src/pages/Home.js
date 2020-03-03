@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Logo from '../images/werner.png'
 import GitHub from '../images/git-hub.svg'
 import LinkedIn from '../images/linkedin.svg'
-import ProductList from '../components/CarList';
-import MovieList from './MovieList'
+import ProductList from '../components/queryList';
+import MovieList from './CarList'
 import * as productAPI from '../services/queryAPI';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';

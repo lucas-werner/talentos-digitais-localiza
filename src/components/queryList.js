@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ProductItem from './CarItem';
+import ProductItem from './QueryItem';
 import './carList.css';
 
 class ProductList extends Component {
