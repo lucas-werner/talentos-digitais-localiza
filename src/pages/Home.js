@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import Logo from '../imgs/werner.png'
-import GitHub from '../imgs/git-hub.svg'
-import LinkedIn from '../imgs/linkedin.svg'
+import Logo from '../images/werner.png'
+import GitHub from '../images/git-hub.svg'
+import LinkedIn from '../images/linkedin.svg'
 import ProductList from '../components/CarList';
 import MovieList from './MovieList'
 import * as productAPI from '../services/productAPI';

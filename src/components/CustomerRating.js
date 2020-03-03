@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Rating from 'react-rating';
-import grayStar from '../imgs/gray_star.png';
-import yellowStar from '../imgs/yellow_star.png';
+import grayStar from '../images/gray_star.png';
+import yellowStar from '../images/yellow_star.png';
 import './customerRating.css';
 
 class CustomerRating extends Component {
