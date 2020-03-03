@@ -1,4 +1,4 @@
-import data from './movieData';
+import data from './carData';
 
 localStorage.setItem('movies', JSON.stringify(data));
 

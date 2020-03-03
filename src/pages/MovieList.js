@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
-import * as movieAPI from '../services/movieAPI';
+import * as movieAPI from '../services/carAPI';
 import { Loading } from '../components';
 
 class MovieList extends Component {

@@ -5,3 +5,5 @@ export async function getQuery(query) {
   const data = await response.json();
   return data;
 }
+
+// inserir loading

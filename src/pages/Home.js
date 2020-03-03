@@ -4,7 +4,7 @@ import GitHub from '../images/git-hub.svg'
 import LinkedIn from '../images/linkedin.svg'
 import ProductList from '../components/CarList';
 import MovieList from './MovieList'
-import * as productAPI from '../services/productAPI';
+import * as productAPI from '../services/queryAPI';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './home.css';
