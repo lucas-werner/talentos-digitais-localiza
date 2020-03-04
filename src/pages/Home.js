@@ -16,12 +16,10 @@ class SearchBar extends Component {
       query: '',
       isShouldRedirect: false,
       products: [],
-
     };
     this.createNavBar = this.createNavBar.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
-
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
