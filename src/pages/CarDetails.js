@@ -45,14 +45,14 @@ class CarDetails extends Component {
         <div className="col s12 m7">
           <div className="card">
             <div className="card-image">
-              <img alt="Car Cover" src={imagePath} />
+              <img alt="Car Cover" src={`projeto-localiza/${imagePath}`} />
               <span className="card-title">{title}</span>
             </div>
             <div className="card-content">
               <p>{`Ranking: ${ranking}`}</p>
               <p>{`Unidades vendidas: ${units}`}</p>
               <p>{`Seminovo na localiza: R$${price}`}</p>
-              <p>Especificações técnicas: </p>
+              <p>Especificações taaaaécnicas: </p>
              <ul>
                 <li>Modelo: {specs.model}</li>
                 <li>Motorização: {specs.motor}</li>
