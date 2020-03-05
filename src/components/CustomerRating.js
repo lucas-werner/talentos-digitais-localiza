@@ -49,20 +49,20 @@ class CustomerRating extends Component {
   saveRating() {
     const { name, email } = this.state;
     if (email === '' || name === '') return alert('Nome e email obrigatórios');
-    if (!localStorage.comments) {
-      localStorage.setItem('comments', JSON.stringify([this.state]));
+    if (!sessionStorage.comments) {
+      sessionStorage.setItem('comments', JSON.stringify([this.state]));
       this.setState({ status: true });
       return this.renderRatings();
     }
-    const comments = JSON.parse(localStorage.getItem('comments'));
-    localStorage.setItem('comments', JSON.stringify([...comments, this.state]));
+    const comments = JSON.parse(sessionStorage.getItem('comments'));
+    sessionStorage.setItem('comments', JSON.stringify([...comments, this.state]));
     this.setState({ status: true });
     return this.renderRatings();
   }
 
   renderRatings() {
-    const comments = JSON.parse(localStorage.getItem('comments'));
-    if (!localStorage.comments) return false;
+    const comments = JSON.parse(sessionStorage.getItem('comments'));
+    if (!sessionStorage.comments) return false;
     return (
       <div>
         <hr></hr>

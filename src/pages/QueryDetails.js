@@ -3,8 +3,8 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Redirect,
-  Link,
+  Link
+
 } from 'react-router-dom';
 import './queryDetails.css';
 import * as productAPI from '../services/queryAPI';
@@ -14,19 +14,13 @@ class ProductDetails extends Component {
     super(props);
 
     this.state = {
-      attributes: [],
-      isShouldRedirect: false,
-      redirectPage: '',
-    };
-
-    this.onChangeRedirect = this.onChangeRedirect.bind(
-      this,
-    );
+      attributes: [],              
+    };    
   }
 
   componentDidMount() {
     const {
-      product,
+      product
     } = this.props.location.state;
     const { productInfo } = product;
     productAPI
@@ -50,23 +44,14 @@ class ProductDetails extends Component {
       );
   }
 
-  onChangeRedirect(string) {
-    this.setState({
-      isShouldRedirect: true,
-      redirectPage: string,
-    });
-  }
-
-  backButtonAndCart() {
+  backButton() {
     return (
       <div className='back_container'>
         <div>
-          <button
+          <Link
             label='return'
             type='button'
-            onClick={() =>
-              this.onChangeRedirect('/')
-            }
+            to='/'
             className='return-button'
           />
         </div>
@@ -75,26 +60,20 @@ class ProductDetails extends Component {
   }
 
   render() {
-    const {
-      product,
-    } = this.props.location.state;
+    const { product } = this.props.location.state;
     const {
       title,
       thumbnail,
-      id,
+      price,     
     } = product;
     const {
       attributes,
-      isShouldRedirect,
-      redirectPage,
+          
     } = this.state;
-    if (isShouldRedirect)
-      return (
-        <Redirect to={redirectPage} />
-      );
+  
     return (
-      <div className="queryDetailsWrap">
-        {this.backButtonAndCart()}
+      <div className='queryDetailsWrap'>
+        {this.backButton()}
         <div className='row'>
           <div className='col s12 m7'>
             <div className='card query-card-details'>
@@ -104,26 +83,27 @@ class ProductDetails extends Component {
                   src={thumbnail}
                 />
               </div>
-                <h5 className='card-title'>
-                  {title}
-                </h5>
+              <h5 className='card-title'>
+                {title}
+              </h5>
               <div className='card-content'>
                 <ul>
-                {attributes.map(
-                  attribute => (
-                    <li
-                      className='attribute'
-                      key={attribute}
-                    >
-                      {attribute}
-                    </li>
-                  ),
-                )}
+                  <li>{`Preço: ${price}`}</li>
+                  {attributes.map(
+                    attribute => (
+                      <li
+                        className='attribute'
+                        key={attribute}
+                      >
+                        {attribute}
+                      </li>
+                    ),
+                  )}
                 </ul>
-              </div>              
+              </div>
             </div>
           </div>
-        </div>            
+        </div>
       </div>
     );
   }

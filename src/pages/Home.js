@@ -42,7 +42,7 @@ class Home extends Component {
       );
     }
 
-    return (     
+    return (           
       <div className="main_page">
           <Header handleChange={this.handleChange} handleSubmit={this.handleSubmit} />   
           <div>
