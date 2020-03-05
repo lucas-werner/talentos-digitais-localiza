@@ -11,7 +11,7 @@ import './App.css';
 function App() {
   return (
     <main>
-      <HashRouter basename='/'>
+      <HashRouter basename='/projeto-localiza/'>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/products/:id" component={QueryDetails} />
