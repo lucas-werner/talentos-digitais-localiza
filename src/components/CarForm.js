@@ -204,9 +204,6 @@ class CarForm extends React.Component {
     );
   }
 
-
-
-
   renderSubmitButton() {
     return (
       <div className="row">
