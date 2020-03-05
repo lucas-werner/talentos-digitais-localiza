@@ -6,4 +6,3 @@ export async function getQuery(query) {
   return data;
 }
 
-// inserir loading

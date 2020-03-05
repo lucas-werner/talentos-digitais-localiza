@@ -5,7 +5,7 @@ const cars = [{
   units: '241.214',
   imagePath: 'images/onix.png',
   price: '36.900',
-  specs: 'Na versão 1.4, modelo passa a contar com a oferta de transmissão automática de seis velocidades; Seu porte parrudo passa a impressão de se tratar de um veículo de segmento superior. O motor 1.0 também dá boa mobilidade do novo hatch da Chevrolet, que parece pesado demais para litros de menos',
+  specs: { model: 'Chevrolet Onix 1.0 LT SPE/4 2020' , motor: '1.0', power: '80cv', cityFuel: '12,9 km/l' } ,
   bookmarked: true,
 },
 {
@@ -15,7 +15,7 @@ const cars = [{
   units: '104.331',
   imagePath: 'images/ka.png',
   price: '35.760',
-  specs: 'Na versão 1.4, modelo passa a contar com a oferta de transmissão automática de seis velocidades; Seu porte parrudo passa a impressão de se tratar de um veículo de segmento superior. O motor 1.0 também dá boa mobilidade do novo hatch da Chevrolet, que parece pesado demais para litros de menos',
+  specs: { model: 'Ford Ka 1.0 SE (Flex) 2020' , motor: '1.0', power: '85cv', cityFuel: '13,4 km/l'} ,
   bookmarked: false,
 },
 {
@@ -25,7 +25,7 @@ const cars = [{
   units: '101.590',
   imagePath: 'images/hb20.png',
   price: '39.900',
-  specs: '',
+  specs: { model: 'Hyundai HB20 1.0 Comfort Plus 2021', motor: '1.0', power:'80cv', cityFuel: '12,5 km/l'},
   bookmarked: true,
 },
 {
@@ -35,7 +35,7 @@ const cars = [{
   units: '85.117',
   imagePath: 'images/kwid.png',
   price: '34.990',
-  specs: '',
+  specs: { model: 'Renault Kwid 1.0 Life 2021', motor: '1.0', power: '70cv', cityFuel: '14,9 km/l'},
   bookmarked: false,
 },
 {
@@ -45,7 +45,7 @@ const cars = [{
   units: '81.285',
   imagePath: 'images/gol.png',
   price: '38.280',
-  specs: '',
+  specs: { model: 'Volkswagen Gol 1.0 MPI (Flex) 2020', motor: '1.0', power:'82cv', cityFuel: '12,9 km/l'},
   bookmarked: true,
 },
 ];
