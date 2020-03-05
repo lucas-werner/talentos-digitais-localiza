@@ -96,7 +96,7 @@ class CustomerRating extends Component {
   render() {
     const { rating } = this.state;
     return (
-      <section className="card">
+      <section className="card rating-form">
         <div className="card-title"><h3>Avalie o veículo</h3></div>
         <form>
           <div>
@@ -120,9 +120,10 @@ class CustomerRating extends Component {
               fullSymbol={<img src={yellowStar} className="icon rating_star" alt="yellow star" />}
             />
           </div>
+          <br></br>
           <div>
             <textarea onChange={this.addComment} />
-          </div>
+          </div>         
           <div>
             <button type="button" onClick={this.saveRating}>Avaliar</button>
           </div>

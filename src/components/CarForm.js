@@ -4,13 +4,18 @@ import PropTypes from 'prop-types';
 class CarForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...props.car };
+    this.state = { ...props.car, specs: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit() {    
     const { onSubmit } = this.props;
-    onSubmit(this.state);
+    const noBlank = Object.values(this.state).some(e => e === undefined || e === '')
+    if (noBlank === true) {
+      alert('Você deve preencher todos os campos')
+    } else {
+      onSubmit(this.state);
+    }
   }
 
   updateCar(field, newValue) {
@@ -18,7 +23,7 @@ class CarForm extends React.Component {
   }
 
   updateSpecs(field, newValue) {
-    this.setState({ specs: { [field] : newValue }});
+    this.setState({ specs: { [field]: newValue } });
   }
 
   renderTitleInput() {
@@ -123,7 +128,7 @@ class CarForm extends React.Component {
     );
   }
 
-  renderModelInput() {  
+  renderModelInput() {
     const { model } = this.state.specs
     return (
       <div className="row">
@@ -142,7 +147,7 @@ class CarForm extends React.Component {
     );
   }
 
-  renderMotorInput() {  
+  renderMotorInput() {
     const { motor } = this.state.specs
     return (
       <div className="row">
@@ -161,7 +166,7 @@ class CarForm extends React.Component {
     );
   }
 
-  renderPowerInput() {  
+  renderPowerInput() {
     const { power } = this.state.specs
     return (
       <div className="row">
@@ -180,7 +185,7 @@ class CarForm extends React.Component {
     );
   }
 
-  renderCityFuelInput() {  
+  renderCityFuelInput() {
     const { cityFuel } = this.state.specs
     return (
       <div className="row">

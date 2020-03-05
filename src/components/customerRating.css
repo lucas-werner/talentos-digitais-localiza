@@ -6,3 +6,18 @@
 .title {
   margin-left: 2rem;
 }
+
+.card  {
+  padding: 10px;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.single-comment {
+  border: 1px solid rgb(209, 207, 207);
+  padding: 5px;
+  margin-top: 2px;
+  
+}
