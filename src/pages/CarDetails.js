@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import * as carAPI from '../services/carAPI';
 import { Loading } from '../components';
+import CustomerRating from '../components/CustomerRating';
 
 class CarDetails extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class CarDetails extends Component {
     if (!car) return <Loading />;
 
     return (
+      <div className="car-details">
       <div className="row">
         <div className="col s12 m7">
           <div className="card">
@@ -54,6 +56,8 @@ class CarDetails extends Component {
               <p>{specs}</p>
               <a href="https://seminovos.localiza.com/" target="_blank" rel="noopener noreferrer">Confira na Localiza!</a>
             </div>
+
+
             <div className="card-action">
               <Link to={`/cars/${id}/edit`}>EDITAR</Link>
               <Link to="/">VOLTAR</Link>
@@ -61,6 +65,8 @@ class CarDetails extends Component {
             </div>
           </div>
         </div>
+      </div>
+        <CustomerRating />
       </div>
     );
   }

@@ -15,7 +15,7 @@ const cars = [{
   units: '104.331',
   imagePath: 'images/ka.png',
   price: '35.760',
-  specs: '',
+  specs: 'Na versão 1.4, modelo passa a contar com a oferta de transmissão automática de seis velocidades; Seu porte parrudo passa a impressão de se tratar de um veículo de segmento superior. O motor 1.0 também dá boa mobilidade do novo hatch da Chevrolet, que parece pesado demais para litros de menos',
   bookmarked: false,
 },
 {

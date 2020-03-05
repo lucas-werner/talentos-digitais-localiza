@@ -83,9 +83,9 @@ class CustomerRating extends Component {
   render() {
     const { rating } = this.state;
     return (
-      <section>
+      <section className="card">
         <form>
-          <div className="title"><h3>Avaliações</h3></div>
+          <div className="card-title"><h3>Avaliações</h3></div>
           <div>
             <label htmlFor="email">
               <input id="email" type="email" placeholder="Email" onChange={this.addEmail} />

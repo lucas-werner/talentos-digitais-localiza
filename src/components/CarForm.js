@@ -144,7 +144,7 @@ class CarForm extends React.Component {
           type="button"
           onClick={this.handleSubmit}
         >
-          Submit
+          ADICIONAR VEÍCULO
         </button>
       </div>
     );
