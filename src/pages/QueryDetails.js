@@ -6,7 +6,6 @@ import {
   Redirect,
   Link,
 } from 'react-router-dom';
-import CustomerRating from '../components/CustomerRating';
 import './queryDetails.css';
 import * as productAPI from '../services/queryAPI';
 
@@ -94,58 +93,37 @@ class ProductDetails extends Component {
         <Redirect to={redirectPage} />
       );
     return (
-      <div>
+      <div className="queryDetailsWrap">
         {this.backButtonAndCart()}
         <div className='row'>
           <div className='col s12 m7'>
-            <div className='card'>
-              <div className='card-image'>
+            <div className='card query-card-details'>
+              <div className='card-image query-details'>
                 <img
                   alt='Car Cover'
                   src={thumbnail}
                 />
-                <span className='card-title'>
-                  {title}
-                </span>
               </div>
+                <h5 className='card-title'>
+                  {title}
+                </h5>
               <div className='card-content'>
+                <ul>
                 {attributes.map(
                   attribute => (
-                    <p
+                    <li
                       className='attribute'
                       key={attribute}
                     >
                       {attribute}
-                    </p>
+                    </li>
                   ),
                 )}
-              </div>
-              <div className='card-action'>
-                <Link
-                  to={`/cars/${id}/edit`}
-                >
-                  EDITAR
-                </Link>
-                <a href='https://seminovos.localiza.com/'>
-                  VOLTAR
-                </a>
-                <button
-                  type='button'
-                  onClick={
-                    this
-                      .onChangeRedirect
-                  }
-                >
-                  APAGAR
-                </button>
-              </div>
+                </ul>
+              </div>              
             </div>
           </div>
-        </div>
-        );
-        <div>
-          <CustomerRating />
-        </div>
+        </div>            
       </div>
     );
   }

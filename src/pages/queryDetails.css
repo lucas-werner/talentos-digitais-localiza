@@ -1,39 +1,5 @@
-
-.product_info {
-  display: flex;
-}
-
-.product_image {
-  border: 1px solid black;
-  height: 90px;
-  margin: 0.5rem 1rem 2rem 2rem;
-  padding: 3rem;
-  width: 90px;
-}
-
-.attribute {
-  margin-left: 2rem;
-}
-
-.back_container {
-  display: flex;
-  justify-content: space-between;
-  width: 100px;
-}
-
-button {
-  cursor: pointer;
-}
-
-.product_attributes {
-  border: 1px solid black;
-  margin: 0.5rem 2rem 2rem 1rem;
-  padding: 1rem;
-  width: 50rem;
-}
-
 .return-button {
-  background-color: white;
+  background-color: #f8f7f5;
   background-image: url('../images/return.svg');
   border: none;
   height: 50px;
@@ -41,6 +7,16 @@ button {
   width: 50px;
 }
 
-.title {
-  margin-left: 2rem;
+.query-details {
+  width: 100%;
+}
+
+.query-card-details{
+  border-radius: 5%;
+  width: 20%;
+  padding: 10px;  
+}
+
+.queryDetailsWrap{
+  padding: 20px;
 }

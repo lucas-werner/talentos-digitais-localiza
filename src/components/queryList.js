@@ -8,6 +8,10 @@ class ProductList extends Component {
   render() {
     const { query, products } = this.props;    
     return (
+      <div>
+        <br></br>
+        <h3 style={{ textAlign: 'center' }}>Carros anunciados no Mercado Livre</h3>
+        <hr></hr>
       <div className="product-list">
         {products.map((product) => (
           <ProductItem            
@@ -23,9 +27,10 @@ class ProductList extends Component {
             quantity={1}
             productInfo={{ query }}
             key={product.id}
-          />
-        ))}
+            />
+            ))}
       </div>
+            </div>
     );
   }
 }
