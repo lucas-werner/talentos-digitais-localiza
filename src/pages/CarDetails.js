@@ -52,7 +52,7 @@ class CarDetails extends Component {
               <p>{`Ranking: ${ranking}`}</p>
               <p>{`Unidades vendidas: ${units}`}</p>
               <p>{`Seminovo na localiza: R$${price}`}</p>
-              <p>Especificações taaaaécnicas: </p>
+              <p>Especificações técnicas: </p>
              <ul>
                 <li>Modelo: {specs.model}</li>
                 <li>Motorização: {specs.motor}</li>
