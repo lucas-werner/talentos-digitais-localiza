@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class CarForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...props.car, specs: '' };
+    this.state = { ...props.car};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
