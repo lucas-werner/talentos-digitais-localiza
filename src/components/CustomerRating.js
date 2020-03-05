@@ -10,6 +10,7 @@ class CustomerRating extends Component {
 
     this.state = {
       rating: 1,
+      name: '',
       email: '',
       comment: '',
       status: false,
@@ -31,6 +32,11 @@ class CustomerRating extends Component {
     this.setState({ email: email.value });
   }
 
+  addName(event) {
+    const name = event.target;
+    this.setState({ name: name.value });
+  }
+
   addComment(event) {
     const comment = event.target;
     this.setState({ comment: comment.value });
@@ -41,8 +47,8 @@ class CustomerRating extends Component {
   }
 
   saveRating() {
-    const { email } = this.state;
-    if (!email) return alert('Email e Avaliação obrigatórios');
+    const { name, email } = this.state;
+    if (email === '' || name === '') return alert('Nome e email obrigatórios');
     if (!localStorage.comments) {
       localStorage.setItem('comments', JSON.stringify([this.state]));
       this.setState({ status: true });
@@ -55,32 +61,35 @@ class CustomerRating extends Component {
   }
 
   renderRatings() {
-    const comments = JSON.parse(localStorage.getItem('comments'));   
+    const comments = JSON.parse(localStorage.getItem('comments'));
     if (!localStorage.comments) return false;
     return (
       <div>
         <hr></hr>
-      <h5>Avaliações: </h5>
-      {comments.map((comment) => (
-        <div className="single-comment">
-          <div>
-            <Rating
-              readonly
-              initialRating={comment.rating}
-              emptySymbol={<img src={grayStar} className="icon rating_star" alt="gray star" />}
-              fullSymbol={<img src={yellowStar} className="icon rating_star" alt="yellow star" />}
-            />
+        <h5>Avaliações: </h5>
+        {comments.map((comment) => (
+          <div className="single-comment">
+            <div>
+              <Rating
+                readonly
+                initialRating={comment.rating}
+                emptySymbol={<img src={grayStar} className="icon rating_star" alt="gray star" />}
+                fullSymbol={<img src={yellowStar} className="icon rating_star" alt="yellow star" />}
+              />
+            </div>
+            <div>
+              Usuário: {comment.name}
+            </div>
+            <div>
+              Email: {comment.email}
+            </div>
+            <div>
+              Comentário: {comment.comment}
+            </div>
           </div>
-          <div>
-            Usuário: {comment.email}
-          </div>
-          <div>
-            Comentário: {comment.comment}
-          </div>
-        </div>        
-      ))
-  }
-  </div>
+        ))
+        }
+      </div>
     );
   }
 
@@ -88,13 +97,21 @@ class CustomerRating extends Component {
     const { rating } = this.state;
     return (
       <section className="card">
+        <div className="card-title"><h3>Avalie o veículo</h3></div>
         <form>
-          <div className="card-title"><h3>Avalie o veículo</h3></div>
           <div>
-            <label htmlFor="email">
-              <input id="email" type="email" placeholder="Email" onChange={this.addEmail} />
+            <label htmlFor="name">
+              <input id="name" type="text" placeholder="Insira seu nome" onChange={(e) => this.addName(e)} />
             </label>
           </div>
+          <div>
+            <label htmlFor="email">
+              <input id="email" type="email" placeholder="Insira seu email" onChange={this.addEmail} />
+            </label>
+          </div>
+
+
+
           <div className="rating_stars">
             <Rating
               initialRating={rating}
