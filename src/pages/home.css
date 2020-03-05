@@ -15,6 +15,10 @@
   width: 300px!important;  
 }
 
+.form-control {
+  color: rgb(255, 255, 255);
+}
+
 .card-card-image {
   width: 500px;
   height: 280px;
@@ -35,9 +39,10 @@
 
 .car-card-query {
   margin: 10px;
-  width: 200px;
+  width: 220px;
 }
 
 .card-title-query {
   font-size: 14px;
+  text-align: center;
 }
