@@ -45,7 +45,7 @@ class CarDetails extends Component {
         <div className="col s12 m7">
           <div className="card">
             <div className="card-image">
-              <img alt="Car Cover" src={`projeto-localiza/${imagePath}`} />
+              <img alt="Car Cover" src={`../${imagePath}`} />
               <span className="card-title">{title}</span>
             </div>
             <div className="card-content">
