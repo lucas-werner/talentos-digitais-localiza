@@ -122,7 +122,7 @@ class CustomerRating extends Component {
           </div>
           <br></br>
           <div>
-            <textarea onChange={this.addComment} />
+            <textarea placeholder="Insira aqui seu comentário" onChange={this.addComment} />
           </div>         
           <div>
             <button type="button" onClick={this.saveRating}>Avaliar</button>

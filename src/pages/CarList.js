@@ -23,9 +23,11 @@ class CarList extends Component {
     return (
       <div>
         <div style={{ textAlign: 'center' }}>
+          <br></br>
         <h1 className="title">Carros mais vendidos de 2019</h1>
           <span>Faltou algum modelo? </span><Link to="/cars/new" className="card-action">Adicione aqui.</Link>   
         </div>
+        <hr></hr>
         <div className="car-list">
           {cars.map((car) => <CarCard key={car.title} car={car} />)}
         </div>
