@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b92824a87b0b1e13520fe8069b2e1cc1",
+    "revision": "e48dbf5ee64264764602b6028548b0c6",
     "url": "/projeto-localiza/index.html"
   },
   {
-    "revision": "b84b4f682b1356cc30c2",
+    "revision": "9603506de98cad3bc7bc",
     "url": "/projeto-localiza/static/css/2.64a99b10.chunk.css"
   },
   {
-    "revision": "c6883d777f00ca73c59a",
+    "revision": "c3948a9ba84f70087b55",
     "url": "/projeto-localiza/static/css/main.439b9e70.chunk.css"
   },
   {
-    "revision": "b84b4f682b1356cc30c2",
-    "url": "/projeto-localiza/static/js/2.53592f6a.chunk.js"
+    "revision": "9603506de98cad3bc7bc",
+    "url": "/projeto-localiza/static/js/2.71303cb2.chunk.js"
   },
   {
-    "revision": "c6883d777f00ca73c59a",
-    "url": "/projeto-localiza/static/js/main.fce00c25.chunk.js"
+    "revision": "c3948a9ba84f70087b55",
+    "url": "/projeto-localiza/static/js/main.a2a7685c.chunk.js"
   },
   {
     "revision": "45161d70e8da23f00556",
