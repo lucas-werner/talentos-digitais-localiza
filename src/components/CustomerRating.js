@@ -42,7 +42,7 @@ class CustomerRating extends Component {
 
   saveRating() {
     const { email } = this.state;
-    if (!email) return alert('Email e Avaliação obrigatorios');
+    if (!email) return alert('Email e Avaliação obrigatórios');
     if (!localStorage.comments) {
       localStorage.setItem('comments', JSON.stringify([this.state]));
       this.setState({ status: true });
@@ -55,12 +55,14 @@ class CustomerRating extends Component {
   }
 
   renderRatings() {
-    const comments = JSON.parse(localStorage.getItem('comments'));
-    console.log(this.state);
+    const comments = JSON.parse(localStorage.getItem('comments'));   
     if (!localStorage.comments) return false;
     return (
-      comments.map((comment) => (
-        <div>
+      <div>
+        <hr></hr>
+      <h5>Avaliações: </h5>
+      {comments.map((comment) => (
+        <div className="single-comment">
           <div>
             <Rating
               readonly
@@ -70,13 +72,15 @@ class CustomerRating extends Component {
             />
           </div>
           <div>
-            {comment.email}
+            Usuário: {comment.email}
           </div>
           <div>
-            {comment.comment}
+            Comentário: {comment.comment}
           </div>
-        </div>
+        </div>        
       ))
+  }
+  </div>
     );
   }
 
@@ -85,7 +89,7 @@ class CustomerRating extends Component {
     return (
       <section className="card">
         <form>
-          <div className="card-title"><h3>Avaliações</h3></div>
+          <div className="card-title"><h3>Avalie o veículo</h3></div>
           <div>
             <label htmlFor="email">
               <input id="email" type="email" placeholder="Email" onChange={this.addEmail} />

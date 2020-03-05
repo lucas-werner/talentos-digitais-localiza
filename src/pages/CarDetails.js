@@ -32,7 +32,7 @@ class CarDetails extends Component {
   render() {
     const { car, isShouldRedirect } = this.state;
     const {
-      title, ranking, units, imagePath, price, specs, id
+      title, ranking, units, imagePath, price, id, specs
     } = car;
 
     if (isShouldRedirect) return <Redirect to="/" />;
@@ -51,9 +51,15 @@ class CarDetails extends Component {
             <div className="card-content">
               <p>{`Ranking: ${ranking}`}</p>
               <p>{`Unidades vendidas: ${units}`}</p>
-              <p>{`Preço: R$${price}`}</p>
+              <p>{`Seminovo na localiza: R$${price}`}</p>
               <p>Especificações técnicas: </p>
-              <p>{specs}</p>
+             <ul>
+                <li>Modelo: {specs.model}</li>
+                <li>Motorização: {specs.motor}</li>
+                <li>Potência (gasolina): {specs.power}</li>
+                <li>Consumo cidade (gasolina): {specs.cityFuel}</li>
+                </ul>
+              
               <a href="https://seminovos.localiza.com/" target="_blank" rel="noopener noreferrer">Confira na Localiza!</a>
             </div>
 

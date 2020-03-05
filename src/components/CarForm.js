@@ -17,6 +17,10 @@ class CarForm extends React.Component {
     this.setState({ [field]: newValue });
   }
 
+  updateSpecs(field, newValue) {
+    this.setState({ specs: { [field] : newValue }});
+  }
+
   renderTitleInput() {
     const { title } = this.state;
 
@@ -98,23 +102,6 @@ class CarForm extends React.Component {
     );
   }
 
-  renderSpecsInput() {
-    const { specs } = this.state;
-
-    return (
-      <div className="row">
-        <div className="input-field col s12">
-          <textarea
-            id="car_storyline"
-            className="materialize-textarea"
-            value={specs}
-            onChange={(event) => this.updateCar('specs', event.target.value)}
-          />
-          <label className="active" htmlFor="car_storyline">Especificações técnicas</label>
-        </div>
-      </div>
-    );
-  }
 
   renderPriceInput() {
     const { price } = this.state;
@@ -136,6 +123,85 @@ class CarForm extends React.Component {
     );
   }
 
+  renderModelInput() {  
+    const { model } = this.state.specs
+    return (
+      <div className="row">
+        <div className="input-field col s12">
+          <input
+            placeholder="Insira o modelo específico"
+            id="car_model"
+            type="text"
+            className="validate"
+            value={model}
+            onChange={(event) => this.updateSpecs('model', event.target.value)}
+          />
+          <label className="active" htmlFor="car_model">Modelo de série</label>
+        </div>
+      </div>
+    );
+  }
+
+  renderMotorInput() {  
+    const { motor } = this.state.specs
+    return (
+      <div className="row">
+        <div className="input-field col s12">
+          <input
+            placeholder="Insira a motorização do veículo (Ex. 1.6)"
+            id="car_motor"
+            type="text"
+            className="validate"
+            value={motor}
+            onChange={(event) => this.updateSpecs('motor', event.target.value)}
+          />
+          <label className="active" htmlFor="car_motor">Motorização</label>
+        </div>
+      </div>
+    );
+  }
+
+  renderPowerInput() {  
+    const { power } = this.state.specs
+    return (
+      <div className="row">
+        <div className="input-field col s12">
+          <input
+            placeholder="Insira a potência do veículo (Ex. 82cv)"
+            id="car_power"
+            type="text"
+            className="validate"
+            value={power}
+            onChange={(event) => this.updateSpecs('power', event.target.value)}
+          />
+          <label className="active" htmlFor="car_power">Potência</label>
+        </div>
+      </div>
+    );
+  }
+
+  renderCityFuelInput() {  
+    const { cityFuel } = this.state.specs
+    return (
+      <div className="row">
+        <div className="input-field col s12">
+          <input
+            placeholder="Insira o consumo médio de combustível na cidade (Ex. 11,2 km/l)"
+            id="car_fuel"
+            type="text"
+            className="validate"
+            value={cityFuel}
+            onChange={(event) => this.updateSpecs('cityFuel', event.target.value)}
+          />
+          <label className="active" htmlFor="car_motor">Consumo médio</label>
+        </div>
+      </div>
+    );
+  }
+
+
+
+
   renderSubmitButton() {
     return (
       <div className="row">
@@ -144,7 +210,7 @@ class CarForm extends React.Component {
           type="button"
           onClick={this.handleSubmit}
         >
-          ADICIONAR VEÍCULO
+          SALVAR
         </button>
       </div>
     );
@@ -160,7 +226,11 @@ class CarForm extends React.Component {
             {this.renderRankingInput()}
             {this.renderImagePathInput()}
             {this.renderPriceInput()}
-            {this.renderSpecsInput()}            
+            <h4>Especificações técnicas</h4>
+            {this.renderModelInput()}
+            {this.renderMotorInput()}
+            {this.renderPowerInput()}
+            {this.renderCityFuelInput()}
             {this.renderSubmitButton()}
           </form>
         </div>
