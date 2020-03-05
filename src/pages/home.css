@@ -32,3 +32,12 @@
   border-radius: 20%;
   padding: 10px;
 }
+
+.car-card-query {
+  margin: 10px;
+  width: 200px;
+}
+
+.card-title-query {
+  font-size: 14px;
+}
