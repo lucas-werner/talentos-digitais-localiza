@@ -23,7 +23,7 @@ class NewCar extends Component {
       );
     }
     return (
-      <CarForm onSubmit={this.handleSubmit} />
+      <CarForm onSubmit={this.handleSubmit} car={{specs: {}}} />
     );
   }
 }

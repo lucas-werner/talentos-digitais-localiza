@@ -28,7 +28,6 @@ class CarForm extends React.Component {
 
   renderTitleInput() {
     const { title } = this.state;
-
     return (
       <div className="row">
         <div className="input-field col s12">
@@ -48,7 +47,6 @@ class CarForm extends React.Component {
 
   renderRankingInput() {
     const { ranking } = this.state;
-
     return (
       <div className="row">
         <div className="input-field col s12">
@@ -69,7 +67,6 @@ class CarForm extends React.Component {
 
   renderUnitsInput() {
     const { units } = this.state;
-
     return (
       <div className="row">
         <div className="input-field col s12">
@@ -89,7 +86,6 @@ class CarForm extends React.Component {
 
   renderImagePathInput() {
     const { imagePath } = this.state;
-
     return (
       <div className="row">
         <div className="input-field col s12">
@@ -110,7 +106,6 @@ class CarForm extends React.Component {
 
   renderPriceInput() {
     const { price } = this.state;
-
     return (
       <div className="row">
         <div className="input-field col s12">
@@ -243,12 +238,12 @@ class CarForm extends React.Component {
 
 CarForm.propTypes = {
   car: PropTypes.shape({
-    rating: PropTypes.number,
+    id: PropTypes.number,
     title: PropTypes.string,
-    subtitle: PropTypes.string,
+    ranking: PropTypes.string,
     imagePath: PropTypes.string,
-    storyline: PropTypes.string,
-    genre: PropTypes.string,
+    price: PropTypes.string,
+    specs: PropTypes.string,
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
 };

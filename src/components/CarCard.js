@@ -34,8 +34,10 @@ class CarCard extends React.Component {
 CarCard.propTypes = {
   car: PropTypes.shape({
     title: PropTypes.string,
-    storyline: PropTypes.string,
+    ranking: PropTypes.string,
     imagePath: PropTypes.string,
+    units: PropTypes.number,
+    price: PropTypes.string,
     id: PropTypes.number,
   }).isRequired,
 };

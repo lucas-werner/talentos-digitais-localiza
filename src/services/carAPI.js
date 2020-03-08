@@ -11,7 +11,7 @@ export const getCars = () => (
     setTimeout(() => {
       const cars = readCars();
       resolve(cars);
-    }, 2000);
+    }, 1000);
   })
 );
 
@@ -21,7 +21,7 @@ export const getCar = (carId) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(car);
-    }, 2000);
+    }, 1000);
   });
 };
 
@@ -37,7 +37,7 @@ export const updateCar = (updatedCar) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve('OK');
-    }, 1000);
+    }, 2000);
   });
 };
 
@@ -51,7 +51,7 @@ export const createCar = (carData) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve('OK');
-    }, 1000);
+    }, 3000);
   });
 };
 

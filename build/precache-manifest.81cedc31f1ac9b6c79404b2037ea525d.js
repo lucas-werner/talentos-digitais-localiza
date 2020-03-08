@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5e9baf222df27f3ea397e6013d953837",
+    "revision": "090535408178da934e0d63a0bcbc4ee9",
     "url": "/projeto-localiza/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/projeto-localiza/static/css/2.64a99b10.chunk.css"
   },
   {
-    "revision": "4984bde1ddf3214147fb",
+    "revision": "4a1f2fcb31d47d9e5795",
     "url": "/projeto-localiza/static/css/main.439b9e70.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/projeto-localiza/static/js/2.71303cb2.chunk.js"
   },
   {
-    "revision": "4984bde1ddf3214147fb",
-    "url": "/projeto-localiza/static/js/main.2b0883a5.chunk.js"
+    "revision": "4a1f2fcb31d47d9e5795",
+    "url": "/projeto-localiza/static/js/main.3b18a8ae.chunk.js"
   },
   {
     "revision": "45161d70e8da23f00556",
