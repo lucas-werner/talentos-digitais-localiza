@@ -6,39 +6,28 @@ const readCars = () => JSON.parse(localStorage.getItem('cars'));
 
 const saveCars = (cars) => localStorage.setItem('cars', JSON.stringify(cars));
 
-export const getCars = () => (
-  new Promise((resolve) => {
-    setTimeout(() => {
-      const cars = readCars();
-      resolve(cars);
-    }, 1000);
-  })
-);
+function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-export const getCar = (carId) => {
-  const car = readCars().find((mov) => mov.id === parseInt(carId, 10));
+export async function getCars() {
+  await timeout(1000);  
+  return readCars()  
+}
 
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(car);
-    }, 1000);
-  });
+
+export async function getCar(carId) {
+  await timeout(1000);
+  return readCars().find((mov) => mov.id === parseInt(carId, 10)); 
 };
 
-export const updateCar = (updatedCar) => {
-  const cars = readCars().map((car) => {
+export function updateCar(updatedCar){
+  readCars().map((car) => {
     if (car.id === parseInt(updatedCar.id, 10)) {
       return { ...car, ...updatedCar };
     }
     return car;
-  });
-  saveCars(cars);
-
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve('OK');
-    }, 2000);
-  });
+  }); 
 };
 
 export const createCar = (carData) => {
@@ -46,23 +35,11 @@ export const createCar = (carData) => {
   const nextId = cars[cars.length - 1].id + 1;
   const newCar = { ...carData, id: nextId };
   cars = [...cars, newCar];
-  saveCars(cars);
-
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve('OK');
-    }, 3000);
-  });
+  saveCars(cars);  
 };
 
 export const deleteCar = (carId) => {
   let cars = readCars();
   cars = cars.filter((car) => car.id !== parseInt(carId, 10));
-  saveCars(cars);
-
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ status: 'OK' });
-    }, 1000);
-  });
+  saveCars(cars);  
 };
