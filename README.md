@@ -10,6 +10,8 @@ Diante das minhas evidentes limitações técnicas, fiz esse projeto com muito c
 
 Link para page => https://lucas-werner.github.io/talentos-digitais-localiza
 
+***
+
 ### Tecnologias utilizadas no projeto
 
 * ES6
@@ -49,6 +51,8 @@ Além disso, se passarmos um `Route` com o path sendo um * após o último `rout
 
 Esse foi o maior desafio do projeto, pois ainda desconhecia o Redux, biblioteca que cria um estado geral para o componente, facilitando o tratamento do fluxo de dados.
 
+Vamos lá. A função `handleSubmit(newCar)` é a que de fato vai gerenciar o estado, no caso, do componente `New Car`. No entanto, como veremos, ela percorrerá um caminho até voltar com informação necessária para atualizar o state.
+
 ```javascript 
 class NewCar extends Component {
  
@@ -58,8 +62,9 @@ class NewCar extends Component {
   }
 
 ```
-
-A função `handleSubmit` é a que de fato vai gerenciar o estado, no caso, do componente `New Car`.
+A seguir, ela é passada como callback para o componente `Car Form`, por meio da `props` chamada `onSubmit`. 
+**ATENÇÃO.** 
+Nesse caso, `onSubmit` é apenas um parâmetro que é passado adiante, e não um elemento da tag `button`. Para ilustrar, `onClick` poderia simplesmente chamar `batatinha={this.handleSubmit}` que ainda assim daria certo (desde que mude a chamada no componente filho).
 
 ```javascript
 render() {
@@ -68,20 +73,9 @@ render() {
     );
   }
 ```
-A seguir, ela é passada como callback para o componente `Car Form`, por meio da `props` chamada `onSubmit`. 
-*ATENÇÃO.* 
 
-```javascript
-  handleSubmit() {    
-    const { onSubmit } = this.props;
-    const noBlank = Object.values(this.state).some(e => e === undefined || e === '')
-    if (noBlank === true) {
-      alert('Você deve preencher todos os campos')
-    } else {
-      onSubmit(this.state);
-    }
-  }
-```
+Outro ponto fundamental é a compreensão do `this`. Repare que a função `handleSubmit` é passada com `.this`, que em tradução livre significa "isto/isso". Ele é fundamental pois refere-se à classe a qual a função pertence. Ou seja, o `this.state` não será do componente filho, isto é, o componente `CarForm`, mas sim do próprio `NewMovie`.
+
 
 ```javascript
 renderSubmitButton() {
@@ -99,6 +93,44 @@ renderSubmitButton() {
   }
 ```
 
+A função `handleSubmit()`, por sua vez, pertence ao componente filho `CarForm`. Ela é chamada assim que se clica no botão SALVAR.
+Note que o `onClick` nesse caso pertence à tag `button`, ou seja, não é passado como `props`. Nesse caso, ele necessariamente precisa ser chamado de `onClick`, que é uma palavra reservada da linguagem HTML.
+
+```javascript
+  handleSubmit() {    
+    const { onSubmit } = this.props;
+    const noBlank = Object.values(this.state).some(e => e === undefined || e === '')
+    if (noBlank === true) {
+      alert('Você deve preencher todos os campos')
+    } else {
+      onSubmit(this.state);
+    }
+  }
+```
+Por fim, aquela função lá de cima, `handleSubmit(newCar)`, finalmente é chamada ao final da função `handleSubmit()`. Repare que em `const { onSubmit } = this.props`, o `onSubmit`, que foi recebido como `props` do componente `NewCar`, nada mais é do que a função `handleSubmit(newCar)` do componente pai. 
+
+Mas por que passar essa função dentro da outra? Isso é necessário (antes do Redux), porque o componente `NewCar` sozinho não  capaz de obter essa informação dentro do próprio `state`. Ele teve que ir buscar lá no componente filho a informação necessária, no caso, o `this.state`.
+
+`else {
+      onSubmit(this.state);
+    }`
+ 
+O `this.state` nada mais é do as informações do carro a ser adicionado, que foram recolhidas no formulário do componente `NewCar`.
+ 
+Por fim, depois de obter a bendita informação, a função `handleSubmit(newCar)` finalmente chama a função `createCar()`, que cria um novo carro na base de dados usando como parâmetro a informação obtida.
+
+```javascript 
+class NewCar extends Component {
+ 
+  handleSubmit(newCar) {
+    carAPI.createCar(newCar);
+    this.setState({ shouldRedirect: true });
+  }
+
+```
+
+**Incrível, não???**
+
 ### API do Mercado Livre
 
 ```javascript
@@ -109,8 +141,7 @@ export async function getQuery(query) {
   return data;
 }
 ```
-
-ES8 async await
+Para fazer essa requisão a API, foi utlizada a syntax `async await`, que foi uma excelente inovação trazida pela oitava versão do ECMA (javascript). Ela substitui o `.then()`, deixando o código muito menos verboso.
 
 ### O que poderia ter sido feito e o que precisa ser melhorado
 
