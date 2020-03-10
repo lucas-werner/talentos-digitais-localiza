@@ -1,6 +1,6 @@
 # Boas vindas, Localiza!
 
-![alt text](http://localiza.grupociadetalentos.com.br/img/banner-texto.png)
+![alt text](https://lh4.googleusercontent.com/FcWpZBP1DQhQV7HCuLImNyUteuMMa8WFLOvUe1pwf4HPe3M5ntzetaP4ihsSq-bsl2XQGx6f2gtXpjDFgiwv-3-MRGLNEShGEI_3ALh9jee_kSoZp_zBZNjW-T5OngJsccoBT8HD)
 
 Este é repositório do projeto para o programa de talentos digitais da localiza. O projeto é relativamente simples: é uma página que exibe cards de carros e suas respectivas propriedades. O interessante dele é que possível criar, editar e remover os cards (CRUD), tudo isso, graças a manipulação do `state` dos `components` criados. 
 
