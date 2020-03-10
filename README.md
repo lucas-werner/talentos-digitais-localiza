@@ -88,9 +88,22 @@ renderSubmitButton() {
   }
 ```
 
+### API do Mercado Livre
+
+```javascript
+export async function getQuery(query) {
+  const URL = `https://api.mercadolibre.com/sites/MLB/search?q=${query}`;
+  const response = await fetch(URL);
+  const data = await response.json();
+  return data;
+}
+```
+
+ES8 async await
+
 ### O que poderia ter sido feito e o que precisa ser melhorado
 
-* Não há testes no projeto. Testar o comportamento da aplicação é essencial para manutenção e escalabilidade do produto. 
-* O site não é responsivo. Atualmente, os clientes mobile representam quase 50% dos usuários.
+* Não há testes no projeto. Testar o comportamento da aplicação é essencial para manutenção e escalabilidade do produto. Isso poderia ser feito pelo uso da RTL, bilbioteca de testes própria do React.
+* O site não é responsivo. Atualmente, os clientes mobile representam quase 50% dos usuários. Por do @mediaquery do CSS, isso poderia ser resolvido.
 * A manipulação do state é feita de forma bastante complexa - há ferramentas melhores para resolver esse problema, como Redux e React Hooks. 
-* O código está muito verboso e repetitivo em diversas partes. Poderia ter sido melhor componentizado.
+* O código está muito verboso e repetitivo em diversas partes. Necessita refatoração e poderia ter sido melhor componentizado.
