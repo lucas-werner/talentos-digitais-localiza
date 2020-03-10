@@ -2,6 +2,9 @@
 
 ![alt text](https://lh4.googleusercontent.com/FcWpZBP1DQhQV7HCuLImNyUteuMMa8WFLOvUe1pwf4HPe3M5ntzetaP4ihsSq-bsl2XQGx6f2gtXpjDFgiwv-3-MRGLNEShGEI_3ALh9jee_kSoZp_zBZNjW-T5OngJsccoBT8HD)
 
+***
+Link para page => https://lucas-werner.github.io/talentos-digitais-localiza
+
 ## TALENTOS DIGITAIS LOCALIZA
 
 Este é repositório do projeto para o programa de talentos digitais da localiza. O projeto é relativamente simples: é uma página que exibe cards de carros e suas respectivas propriedades. O interessante dele é que possível criar, editar e remover os cards (CRUD), tudo isso, graças a manipulação do `state` dos `components` criados. 
@@ -9,8 +12,6 @@ Este é repositório do projeto para o programa de talentos digitais da localiza
 Além disso, pela barra de pesquisa é possível pesquisar qualquer outro modelo de automóvel. Isso é feito por meio da API disponibilizada pelo Mercado Livre. Infelizmente, a `thumbnail` que é retornada vem numa qualidade bastante reduzida, o que prejudica o site esteticamente. No entanto, o interessante é realmente a utilização da API.
 
 Diante das minhas evidentes limitações técnicas, fiz esse projeto com muito carinho, e acredito que consegui explorar bem o conteúdo que aprendi até agora. Vamos agora a uma breve explicação.
-
-Link para page => https://lucas-werner.github.io/talentos-digitais-localiza
 
 ***
 
