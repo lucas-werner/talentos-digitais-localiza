@@ -1,8 +1,18 @@
 # Boas vindas, Localiza!
 
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
+Este é repositório do projeto para o programa de talentos digitais da localiza. O projeto é relativamente simples: é uma página que exibe cards de carros e suas respectivas propriedades. O interessante dele é que possível criar, editar e remover os cards (CRUD), tudo isso, graças a manipulação do `state` dos `components` criados. 
 
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
+Além disso, na barra de pesquisa é possível pesquisar qualquer outro modelo de automóvel. Isso é feito por meio da API disponibilizada pelo Mercado Livre. Infelizmente, a `thumbnail` que é retornada vem numa qualidade bastante reduzida, o que prejudica o site esteticamente. No entanto, o interessante é realmente a utilização da API.
 
-## O que deverá ser desenvolvido
+Diante das minhas evidentes limitações técnicas, fiz esse projeto com muito carinho, e acredito que consegui explorar bem o conteúdo que aprendi até agora. Vamos agora a uma breve explicação.
+
+Link para page => https://lucas-werner.github.io/talentos-digitais-localiza
+
+## Breve apresentação
+### Tecnologias utilizadas no projeto
+### Maior desafio do projeto: manipulação de state e callbacks
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+### O que poderia (e precisa) ser melhorado
 
