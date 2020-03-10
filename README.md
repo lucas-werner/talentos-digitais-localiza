@@ -14,6 +14,7 @@ Além disso, pela barra de pesquisa é possível pesquisar qualquer outro modelo
 Diante das minhas evidentes limitações técnicas, fiz esse projeto com muito carinho, e acredito que consegui explorar bem o conteúdo que aprendi até agora. Vamos agora a uma breve explicação.
 
 ***
+Link para page => https://lucas-werner.github.io/talentos-digitais-localiza
 
 ### Tecnologias utilizadas no projeto
 
