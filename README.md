@@ -16,12 +16,11 @@ Link para page => https://lucas-werner.github.io/talentos-digitais-localiza
 
 ### Tecnologias utilizadas no projeto
 
-* ES6
-* Reactjs
 * React Router
 * API endpoint
+* ES6 e ESNext
 
-### React Router
+### 1. React Router
 
 ```javascript
 function App() {
@@ -49,7 +48,7 @@ Vale ressaltar que o path="/" pode ser combinado com um atributo extra chamado e
 
 Além disso, se passarmos um `Route` com o path sendo um * após o último `route`, podemos ter uma rota que representa a página 404 do nosso sistema, no caso, o componente importado `{NotFound}`.
 
-### Manipulação de state e callbacks
+### 2. Manipulação de state e callbacks
 
 Esse foi o maior desafio do projeto, pois ainda desconhecia o Redux, biblioteca que cria um estado geral para o componente, facilitando o tratamento do fluxo de dados.
 
@@ -137,7 +136,7 @@ class NewCar extends Component {
 
 **Incrível, não???**
 
-### API do Mercado Livre
+### 3. ES8 e API do Mercado Livre
 
 ```javascript
 export async function getQuery(query) {
