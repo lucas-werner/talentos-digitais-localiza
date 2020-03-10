@@ -15,6 +15,7 @@ Link para page => https://lucas-werner.github.io/talentos-digitais-localiza
 * ES6
 * Reactjs
 * React Router
+* API endpoint
 
 ### React Router
 
@@ -36,12 +37,18 @@ function App() {
   );
 }
 ```
-BrowserRouter, ele é um componente que irá ser responsável por informar pra nossa aplicação que a partir de onde ele é chamado teremos um roteamento de componentes, por conta disso ele irá ficar em volta tanto do <App /> quanto do <Sobre />. Com isso o código do nosso ./src/index.js fica assim:
-O Switch, é um componente que recebe vários componentes Route e dado o caminho que for passado na URL um deles é renderizado. Cada Route é uma rota do nosso sistema, e devemos passar pra ele qual vai ser o caminho da url por meio de um atributo path="" e dado esse path, um outro atributo com o nosso componente que foi importado chamado component={ComponenteDoPath}, deixando nossa estrutura com esse formato:
+O `Router` é o componente responsável por informar para a aplicação que a partir de onde ele é chamado teremos um roteamento de componentes, por conta disso ele envolve todos componentes da aplicação. 
+
+O `Switch`, é um componente que recebe vários componentes Router e dado o caminho que for passado na URL um deles é renderizado. Cada `Route` é uma rota do nosso sistema, e devemos passar para ele qual vai ser o caminho da url por meio de um atributo `path=""` e dado esse path, um outro atributo com o nosso componente que foi importado chamado component={ComponenteDoPath}.
+
 Vale ressaltar que o path="/" pode ser combinado com um atributo extra chamado exact para garantir que se a rota tiver somente "/" ele vai ser renderizado e evitar conflito com as outras rotas que possuam o valor passado no path.
-Uma outra parada legal do path, é que se passarmos um Route com o path sendo um * após o último route (em nosso caso após o Route do sobre), podemos ter uma rota que representa a página 404 do nosso sistema.
+
+Além disso, se passarmos um `Route` com o path sendo um * após o último `route`, podemos ter uma rota que representa a página 404 do nosso sistema, no caso, o componente importado `{NotFound}`.
 
 ### Manipulação de state e callbacks
+
+Esse foi o maior desafio do projeto, pois ainda desconhecia o Redux, biblioteca que cria um estado geral para o componente, facilitando o tratamento do fluxo de dados.
+
 ```javascript 
 class NewCar extends Component {
  
@@ -51,7 +58,9 @@ class NewCar extends Component {
   }
 
 ```
-aisdjaisdjiasjd
+
+A função `handleSubmit` é a que de fato vai gerenciar o estado, no caso, do componente `New Car`.
+
 ```javascript
 render() {
       return (
@@ -59,6 +68,8 @@ render() {
     );
   }
 ```
+A seguir, ela é passada como callback para o componente `Car Form`, por meio da `props` chamada `onSubmit`. 
+*ATENÇÃO.* 
 
 ```javascript
   handleSubmit() {    
