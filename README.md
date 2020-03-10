@@ -3,7 +3,6 @@
 ![alt text](https://lh4.googleusercontent.com/FcWpZBP1DQhQV7HCuLImNyUteuMMa8WFLOvUe1pwf4HPe3M5ntzetaP4ihsSq-bsl2XQGx6f2gtXpjDFgiwv-3-MRGLNEShGEI_3ALh9jee_kSoZp_zBZNjW-T5OngJsccoBT8HD)
 
 ***
-Link para page => https://lucas-werner.github.io/talentos-digitais-localiza
 
 ## TALENTOS DIGITAIS LOCALIZA
 
