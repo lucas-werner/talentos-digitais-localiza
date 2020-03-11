@@ -137,7 +137,6 @@ class NewCar extends Component {
 
 ```
 
-**Incrível, não???**
 
 ### 3. ES8 e API do Mercado Livre
 
