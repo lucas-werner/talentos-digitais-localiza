@@ -153,6 +153,6 @@ Para fazer essa requisão a API, foi utlizada a syntax `async await`, que foi um
 ### O que poderia ter sido feito e o que precisa ser melhorado
 
 * Não há testes no projeto. Testar o comportamento da aplicação é essencial para manutenção e escalabilidade do produto. Isso poderia ser feito pelo uso da RTL, bilbioteca de testes própria do React.
-* O site não é responsivo. Atualmente, os clientes mobile representam quase 50% dos usuários. Por do @mediaquery do CSS, isso poderia ser resolvido.
+* O site não é responsivo. Atualmente, os clientes mobile representam quase 50% dos usuários. Por do meio @mediaquery do CSS, isso poderia ser resolvido.
 * A manipulação do state é feita de forma bastante complexa - há ferramentas melhores para resolver esse problema, como Redux e React Hooks. 
 * O código está muito verboso e repetitivo em diversas partes. Necessita refatoração e poderia ter sido melhor componentizado.
