@@ -72,7 +72,7 @@ A seguir, ela é passada como callback para o componente `Car Form`, por meio da
 
 Nesse caso, `onSubmit` é apenas um parâmetro que é passado adiante, e não um elemento da tag `button`. Para ilustrar, `onClick` poderia simplesmente chamar `batatinha={this.handleSubmit}` que ainda assim daria certo (desde que mude a chamada no componente filho).
 
-Outro ponto fundamental é a compreensão do `this`. Repare que a função `handleSubmit` é passada com `.this`, que em tradução livre significa "isto/isso". Ele é fundamental pois refere-se à classe a qual a função pertence. Ou seja, o `this.state` não será do componente filho, isto é, o componente `CarForm`, mas sim do próprio `NewMovie`.
+Outro ponto fundamental é a compreensão do `this`. Repare que a função `handleSubmit` é passada com `.this`, que em tradução livre significa "isto/isso". Ele é fundamental pois refere-se à classe a qual a função pertence. Ou seja, o `this.state` não será do componente filho, isto é, o componente `CarForm`, mas sim do próprio `NewCar`.
 
 ```javascript
 render() {
