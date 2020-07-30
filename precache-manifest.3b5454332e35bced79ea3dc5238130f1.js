@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "251981748af739535f46cca0a01f248b",
+    "revision": "d5c2952d4e4938eacc2b9a8ddb736d88",
     "url": "/talentos-digitais-localiza/index.html"
   },
   {
-    "revision": "34b5589495af9778d5a9",
+    "revision": "64fe9aef509033290c85",
     "url": "/talentos-digitais-localiza/static/css/2.64a99b10.chunk.css"
   },
   {
-    "revision": "b356d6fc891a72a74c02",
+    "revision": "a0142d2f068cacee19aa",
     "url": "/talentos-digitais-localiza/static/css/main.3dc040cc.chunk.css"
   },
   {
-    "revision": "34b5589495af9778d5a9",
-    "url": "/talentos-digitais-localiza/static/js/2.6fd6e1fb.chunk.js"
+    "revision": "64fe9aef509033290c85",
+    "url": "/talentos-digitais-localiza/static/js/2.144a4565.chunk.js"
   },
   {
-    "revision": "b356d6fc891a72a74c02",
-    "url": "/talentos-digitais-localiza/static/js/main.c2bcf4c7.chunk.js"
+    "revision": "a0142d2f068cacee19aa",
+    "url": "/talentos-digitais-localiza/static/js/main.24f8b5b5.chunk.js"
   },
   {
     "revision": "f4f96a28a33e90a17a1a",
