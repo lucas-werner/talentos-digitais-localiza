@@ -11,7 +11,7 @@ import './App.css';
 function App() {
   return (
     <main>
-      <Router basename='/talentos-digitais-localiza/'>
+      <Router basename='/talentos-digitais-localiza'>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/products/:id" component={QueryDetails} />
