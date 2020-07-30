@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d5c2952d4e4938eacc2b9a8ddb736d88",
+    "revision": "abd8e57bc5d947299da570c9b77a62a4",
     "url": "/talentos-digitais-localiza/index.html"
   },
   {
-    "revision": "64fe9aef509033290c85",
-    "url": "/talentos-digitais-localiza/static/css/2.64a99b10.chunk.css"
+    "revision": "4fc001b5b7915e3e6849",
+    "url": "/talentos-digitais-localiza/static/css/2.cff28e81.chunk.css"
   },
   {
-    "revision": "a0142d2f068cacee19aa",
+    "revision": "d0963fadbff3ce8e4def",
     "url": "/talentos-digitais-localiza/static/css/main.3dc040cc.chunk.css"
   },
   {
-    "revision": "64fe9aef509033290c85",
-    "url": "/talentos-digitais-localiza/static/js/2.144a4565.chunk.js"
+    "revision": "4fc001b5b7915e3e6849",
+    "url": "/talentos-digitais-localiza/static/js/2.f8fac2fd.chunk.js"
   },
   {
-    "revision": "a0142d2f068cacee19aa",
-    "url": "/talentos-digitais-localiza/static/js/main.24f8b5b5.chunk.js"
+    "revision": "d0963fadbff3ce8e4def",
+    "url": "/talentos-digitais-localiza/static/js/main.179de8ac.chunk.js"
   },
   {
     "revision": "f4f96a28a33e90a17a1a",

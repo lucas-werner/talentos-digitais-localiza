@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/talentos-digitais-localiza/static/css/main.3dc040cc.chunk.css",
-    "main.js": "/talentos-digitais-localiza/static/js/main.24f8b5b5.chunk.js",
-    "main.js.map": "/talentos-digitais-localiza/static/js/main.24f8b5b5.chunk.js.map",
+    "main.js": "/talentos-digitais-localiza/static/js/main.179de8ac.chunk.js",
+    "main.js.map": "/talentos-digitais-localiza/static/js/main.179de8ac.chunk.js.map",
     "runtime-main.js": "/talentos-digitais-localiza/static/js/runtime-main.bbdb01b2.js",
     "runtime-main.js.map": "/talentos-digitais-localiza/static/js/runtime-main.bbdb01b2.js.map",
-    "static/css/2.64a99b10.chunk.css": "/talentos-digitais-localiza/static/css/2.64a99b10.chunk.css",
-    "static/js/2.144a4565.chunk.js": "/talentos-digitais-localiza/static/js/2.144a4565.chunk.js",
-    "static/js/2.144a4565.chunk.js.map": "/talentos-digitais-localiza/static/js/2.144a4565.chunk.js.map",
+    "static/css/2.cff28e81.chunk.css": "/talentos-digitais-localiza/static/css/2.cff28e81.chunk.css",
+    "static/js/2.f8fac2fd.chunk.js": "/talentos-digitais-localiza/static/js/2.f8fac2fd.chunk.js",
+    "static/js/2.f8fac2fd.chunk.js.map": "/talentos-digitais-localiza/static/js/2.f8fac2fd.chunk.js.map",
     "index.html": "/talentos-digitais-localiza/index.html",
-    "precache-manifest.3b5454332e35bced79ea3dc5238130f1.js": "/talentos-digitais-localiza/precache-manifest.3b5454332e35bced79ea3dc5238130f1.js",
+    "precache-manifest.c44621bc258beb65444140e45d595518.js": "/talentos-digitais-localiza/precache-manifest.c44621bc258beb65444140e45d595518.js",
     "service-worker.js": "/talentos-digitais-localiza/service-worker.js",
-    "static/css/2.64a99b10.chunk.css.map": "/talentos-digitais-localiza/static/css/2.64a99b10.chunk.css.map",
+    "static/css/2.cff28e81.chunk.css.map": "/talentos-digitais-localiza/static/css/2.cff28e81.chunk.css.map",
     "static/css/main.3dc040cc.chunk.css.map": "/talentos-digitais-localiza/static/css/main.3dc040cc.chunk.css.map",
     "static/media/git-hub.svg": "/talentos-digitais-localiza/static/media/git-hub.26624f7a.svg",
     "static/media/gray_star.png": "/talentos-digitais-localiza/static/media/gray_star.efe3f883.png",
@@ -20,9 +20,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.bbdb01b2.js",
-    "static/css/2.64a99b10.chunk.css",
-    "static/js/2.144a4565.chunk.js",
+    "static/css/2.cff28e81.chunk.css",
+    "static/js/2.f8fac2fd.chunk.js",
     "static/css/main.3dc040cc.chunk.css",
-    "static/js/main.24f8b5b5.chunk.js"
+    "static/js/main.179de8ac.chunk.js"
   ]
 }
